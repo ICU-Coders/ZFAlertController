@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZFAlertViewController"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "No short description of ZFAlertViewController."
 
   # This description is used to generate tags and improve search results.
