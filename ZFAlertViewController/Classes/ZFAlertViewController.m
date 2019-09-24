@@ -100,6 +100,7 @@ static int NOMAL_CONTENT_MARGIN = 12;
     [super viewDidLoad];
     
     NSAssert(self.actionArray.count > 0, @"actions need more than one");
+    NSAssert(self.actionArray.count < 0, @"actions need less than three");
     
     [self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:.6]];
     
