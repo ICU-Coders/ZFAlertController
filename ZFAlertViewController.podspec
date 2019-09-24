@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ZFAlertViewController"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "No short description of ZFAlertViewController."
   s.homepage     = "https://github.com/FranLucky/ZFAlertViewController"
   s.license      = { :type => "MIT"}
