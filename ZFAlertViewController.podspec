@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ZFAlertViewController"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "No short description of ZFAlertViewController."
   s.homepage     = "https://github.com/FranLucky/ZFAlertViewController"
   s.license      = { :type => "MIT"}
@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/FranLucky/ZFAlertViewController.git", :tag => "#{s.version}" }
   s.source_files  = "ZFAlertViewController/*.{h,m}"
-  s.public_header_files = ['ZFAlertViewController/*.h', ]
   s.frameworks = "Foundation","UIKit"
   s.requires_arc = true
 end

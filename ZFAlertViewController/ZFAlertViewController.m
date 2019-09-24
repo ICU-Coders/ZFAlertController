@@ -100,7 +100,7 @@ static int NOMAL_CONTENT_MARGIN = 12;
     [super viewDidLoad];
     
     NSAssert(self.actionArray.count > 0, @"actions need more than one");
-    NSAssert(self.actionArray.count < 0, @"actions need less than three");
+    NSAssert(self.actionArray.count < 3, @"actions need less than three");
     
     [self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:.6]];
     
@@ -218,10 +218,11 @@ static int NOMAL_CONTENT_MARGIN = 12;
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    float y = NOMAL_CONTENT_MARGIN * 2;
+    float y = NOMAL_CONTENT_MARGIN;
     float x = NOMAL_CONTENT_MARGIN;
     float contentWidth = NOMAL_ALERT_WIDTH - NOMAL_CONTENT_MARGIN * 2;
     if (_styleOption & ZFAlertViewControllerOptionTitle) {
+        y += NOMAL_CONTENT_MARGIN;
         [self.titleLabel setFrame:CGRectMake(x, y, contentWidth, self.titleHeight)];
         y += self.titleHeight;
     }

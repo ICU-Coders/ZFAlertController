@@ -33,6 +33,7 @@ typedef NS_OPTIONS(NSUInteger, ZFAlertViewControllerStyleOption) {
     ZFAlertViewControllerOptionInput = 1 << 2, // 100
     ZFAlertViewControllerOptionTitle_Message = ZFAlertViewControllerOptionTitle | ZFAlertViewControllerOptionMessage,
     ZFAlertViewControllerOptionTitle_Input = ZFAlertViewControllerOptionTitle | ZFAlertViewControllerOptionInput,
+    ZFAlertViewControllerOptionMessage_Input = ZFAlertViewControllerOptionMessage | ZFAlertViewControllerOptionInput,
     ZFAlertViewControllerOptionTitle_Message_Input = ZFAlertViewControllerOptionTitle | ZFAlertViewControllerOptionMessage | ZFAlertViewControllerOptionInput,
 };
 
