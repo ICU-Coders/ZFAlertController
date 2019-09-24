@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D77C2762339A96B002029AE /* ZFAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D77C2742339A96A002029AE /* ZFAlertViewController.m */; };
+		7D77C27A2339C806002029AE /* ZFAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D77C2782339C806002029AE /* ZFAlertViewController.m */; };
 		7DAFB50A2338582D00A1A8E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFB5092338582D00A1A8E9 /* AppDelegate.m */; };
 		7DAFB50D2338582D00A1A8E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFB50C2338582D00A1A8E9 /* ViewController.m */; };
 		7DAFB5102338582D00A1A8E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DAFB50E2338582D00A1A8E9 /* Main.storyboard */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7D77C2742339A96A002029AE /* ZFAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFAlertViewController.m; sourceTree = "<group>"; };
-		7D77C2752339A96A002029AE /* ZFAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFAlertViewController.h; sourceTree = "<group>"; };
+		7D77C2782339C806002029AE /* ZFAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFAlertViewController.m; sourceTree = "<group>"; };
+		7D77C2792339C806002029AE /* ZFAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFAlertViewController.h; sourceTree = "<group>"; };
 		7DAFB5052338582D00A1A8E9 /* ZFAlertViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFAlertViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DAFB5082338582D00A1A8E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7DAFB5092338582D00A1A8E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,13 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D77C2732339A96A002029AE /* Classes */ = {
+		7D77C2772339C806002029AE /* ZFAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7D77C2752339A96A002029AE /* ZFAlertViewController.h */,
-				7D77C2742339A96A002029AE /* ZFAlertViewController.m */,
+				7D77C2782339C806002029AE /* ZFAlertViewController.m */,
+				7D77C2792339C806002029AE /* ZFAlertViewController.h */,
 			);
-			path = Classes;
+			name = ZFAlertViewController;
+			path = ../../ZFAlertViewController;
 			sourceTree = "<group>";
 		};
 		7DAFB4FC2338582D00A1A8E9 = {
@@ -70,7 +71,7 @@
 		7DAFB5072338582D00A1A8E9 /* ZFAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7D77C2732339A96A002029AE /* Classes */,
+				7D77C2772339C806002029AE /* ZFAlertViewController */,
 				7DAFB5082338582D00A1A8E9 /* AppDelegate.h */,
 				7DAFB5092338582D00A1A8E9 /* AppDelegate.m */,
 				7DAFB50B2338582D00A1A8E9 /* ViewController.h */,
@@ -155,7 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DAFB50D2338582D00A1A8E9 /* ViewController.m in Sources */,
-				7D77C2762339A96B002029AE /* ZFAlertViewController.m in Sources */,
+				7D77C27A2339C806002029AE /* ZFAlertViewController.m in Sources */,
 				7DAFB5182338582E00A1A8E9 /* main.m in Sources */,
 				7DAFB50A2338582D00A1A8E9 /* AppDelegate.m in Sources */,
 			);
