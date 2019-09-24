@@ -133,9 +133,6 @@ static int NOMAL_CONTENT_MARGIN = 12;
                 tf.textColor = ZFALERT_BLACKCLOLR;
                 tf.layer.borderWidth = 0.5;
                 [tf addTarget:self action:@selector(changeTextFieldText:) forControlEvents:UIControlEventEditingChanged];
-                NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"  请输入..." attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]}];
-                tf.attributedPlaceholder = placeholder;
-                
                 tf.clearButtonMode = UITextFieldViewModeAlways;
                 [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingLeft"];
                 [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingRight"];
@@ -195,6 +192,7 @@ static int NOMAL_CONTENT_MARGIN = 12;
     ZFAlertViewAction *action = self.actionArray[index];
     action.action();
     [self.view endEditing:YES];
+    [self.actionArray removeAllObjects];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
