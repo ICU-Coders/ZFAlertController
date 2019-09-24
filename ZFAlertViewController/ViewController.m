@@ -27,6 +27,11 @@
 
 - (void)buttonClicked:(UIButton *)button {
     ZFAlertViewController *alertVC = [ZFAlertViewController alertWithTitle:@"标题？" message:@"副标题" style:ZFAlertViewControllerOptionTitle_Message_Input];
+    
+    alertVC.textChangeCallback = ^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
+        NSLog(@"text:%@", text);
+    };
+    
     ZFAlertViewAction *ok = [ZFAlertViewAction actionWithTitle:@"确定" action:^{
         NSLog(@"ok");
     }];

@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 #define ZFALERT_OK_CLOLR [UIColor colorWithRed:0 green:180/255.0 blue:175/255.0 alpha:1]
 #define ZFALERT_LINE_COLOR [UIColor colorWithRed:240/255.0 green:240/255.0 blue:243/255.0 alpha:1.0]
 
+typedef void(^textFieldTextChanged)(NSString *text, UITextField *textField);
+
 @interface ZFAlertViewAction : NSObject
 
 + (instancetype)actionWithTitle:(NSString *)title action:(void (^ _Nullable)(void))action;
@@ -46,6 +48,8 @@ typedef NS_OPTIONS(NSUInteger, ZFAlertViewControllerStyleOption) {
 @property (nonatomic, strong) UIFont *messageFont; // default [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
 
 @property(nonatomic, copy) NSString *textFiledPlaceholder;
+
+@property(nonatomic, copy) textFieldTextChanged textChangeCallback;
 
 @property (nullable, nonatomic, strong) UITextField * textFiled;
 

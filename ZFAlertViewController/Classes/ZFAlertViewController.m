@@ -90,6 +90,8 @@ static int NOMAL_CONTENT_MARGIN = 12;
         _styleOption = styleOption;
         self.actionArray = [NSMutableArray arrayWithCapacity:10];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -141,6 +143,7 @@ static int NOMAL_CONTENT_MARGIN = 12;
             tf.placeholder = self.textFiledPlaceholder;
             tf.textColor = ZFALERT_BLACKCLOLR;
             tf.layer.borderWidth = 0.5;
+            [tf addTarget:self action:@selector(changeTextFieldText:) forControlEvents:UIControlEventEditingChanged];
             [tf setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
             tf.clearButtonMode = UITextFieldViewModeAlways;
             [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingLeft"];
@@ -186,6 +189,30 @@ static int NOMAL_CONTENT_MARGIN = 12;
     ZFAlertViewAction *action = self.actionArray[index];
     action.action();
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)changeTextFieldText:(UITextField *)tf {
+    if (self.textChangeCallback) {
+        self.textChangeCallback(tf.text, tf);
+    }
+}
+- (void)dealloc {
+    NSLog(@"%s", __func__);
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+- (void)keyboardWillShow:(NSNotification *)notification {
+    CGPoint center = self.view.center;
+    center.y -= 50;
+    [UIView animateWithDuration:.3 animations:^{
+        [self.contentView setCenter:center];
+    }];
+}
+- (void)keyboardWillBeHiden:(NSNotification *)notification {
+    [UIView animateWithDuration:.3 animations:^{
+        [self.contentView setCenter:self.view.center];
+    }];
+    
 }
 
 - (void)viewWillLayoutSubviews {
@@ -288,6 +315,11 @@ static int NOMAL_CONTENT_MARGIN = 12;
     return ceilf(stringHeight);
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.textFiled) {
+        [self.textFiled resignFirstResponder];
+    }
+}
 /*
 #pragma mark - Navigation
 
