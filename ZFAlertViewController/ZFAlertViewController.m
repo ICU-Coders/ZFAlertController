@@ -192,13 +192,17 @@ static int NOMAL_CONTENT_MARGIN = 12;
     int index = (int)button.tag - 89383;
     ZFAlertViewAction *action = self.actionArray[index];
     action.action();
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)changeTextFieldText:(UITextField *)tf {
-    if (self.textChangeCallback) {
-        self.textChangeCallback(tf.text, tf);
+    if (tf.markedTextRange == nil) {
+        if (self.textChangeCallback) {
+            self.textChangeCallback(tf.text, tf);
+        }
     }
+    
 }
 - (void)dealloc {
     NSLog(@"%s", __func__);
