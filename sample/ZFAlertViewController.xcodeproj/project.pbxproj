@@ -45,8 +45,8 @@
 		7D77C2772339C806002029AE /* ZFAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7D77C2782339C806002029AE /* ZFAlertViewController.m */,
 				7D77C2792339C806002029AE /* ZFAlertViewController.h */,
+				7D77C2782339C806002029AE /* ZFAlertViewController.m */,
 			);
 			name = ZFAlertViewController;
 			path = ../../ZFAlertViewController;

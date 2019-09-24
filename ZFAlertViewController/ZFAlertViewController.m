@@ -92,6 +92,72 @@ static int NOMAL_CONTENT_MARGIN = 12;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
+        
+        
+        self.contentView = ({
+            UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+            [view setBackgroundColor:self.backgroundColor];
+            view.layer.cornerRadius = self.cornerRadius;
+            view;
+        });
+        if (_styleOption & ZFAlertViewControllerOptionTitle) {
+            self.titleLabel = ({
+                UILabel *label = [[UILabel alloc] init];
+                label.font = self.titleFont;
+                label.textColor = self.titleColor;
+                label.numberOfLines = 3;
+                label.text = self.titleText;
+                label.textAlignment = NSTextAlignmentCenter;
+                label;
+            });
+            [self.contentView addSubview:self.titleLabel];
+        }
+        
+        if (_styleOption & ZFAlertViewControllerOptionMessage) {
+            self.messageLabel = ({
+                UILabel *label = [[UILabel alloc] init];
+                label.font = self.messageFont;
+                label.textColor = self.messageColor;
+                label.numberOfLines = 3;
+                label.text = self.messageText;
+                label.textAlignment = NSTextAlignmentCenter;
+                label;
+            });
+            [self.contentView addSubview:self.messageLabel];
+        }
+        
+        if (_styleOption & ZFAlertViewControllerOptionInput) {
+            self.textFiled = ({
+                UITextField *tf = [[UITextField alloc] init];
+                tf.placeholder = self.textFiledPlaceholder;
+                tf.textColor = ZFALERT_BLACKCLOLR;
+                tf.layer.borderWidth = 0.5;
+                [tf addTarget:self action:@selector(changeTextFieldText:) forControlEvents:UIControlEventEditingChanged];
+                [tf setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+                tf.clearButtonMode = UITextFieldViewModeAlways;
+                [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingLeft"];
+                [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingRight"];
+                tf.layer.borderColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:243/255.0 alpha:1.0].CGColor;
+                tf;
+            });
+            [self.contentView addSubview:self.textFiled];
+        }
+        
+        self.lineHorView = ({
+            UIView *view = [[UIView alloc] init];
+            [view setBackgroundColor:ZFALERT_LINE_COLOR];
+            view;
+        });
+        [self.contentView addSubview:self.lineHorView];
+        
+        
+        self.bottomButtonView = ({
+            UIView *view = [[UIView alloc] init];
+            view;
+        });
+        [self.contentView addSubview:self.bottomButtonView];
+        
+        
     }
     return self;
 }
@@ -104,70 +170,7 @@ static int NOMAL_CONTENT_MARGIN = 12;
     
     [self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:.6]];
     
-    self.contentView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-        [view setBackgroundColor:self.backgroundColor];
-        view.layer.cornerRadius = self.cornerRadius;
-        view;
-    });
     [self.view addSubview:self.contentView];
-    
-    if (_styleOption & ZFAlertViewControllerOptionTitle) {
-        self.titleLabel = ({
-            UILabel *label = [[UILabel alloc] init];
-            label.font = self.titleFont;
-            label.textColor = self.titleColor;
-            label.numberOfLines = 3;
-            label.text = self.titleText;
-            label.textAlignment = NSTextAlignmentCenter;
-            label;
-        });
-        [self.contentView addSubview:self.titleLabel];
-    }
-    
-    if (_styleOption & ZFAlertViewControllerOptionMessage) {
-        self.messageLabel = ({
-            UILabel *label = [[UILabel alloc] init];
-            label.font = self.messageFont;
-            label.textColor = self.messageColor;
-            label.numberOfLines = 3;
-            label.text = self.messageText;
-            label.textAlignment = NSTextAlignmentCenter;
-            label;
-        });
-        [self.contentView addSubview:self.messageLabel];
-    }
-    
-    if (_styleOption & ZFAlertViewControllerOptionInput) {
-        self.textFiled = ({
-            UITextField *tf = [[UITextField alloc] init];
-            tf.placeholder = self.textFiledPlaceholder;
-            tf.textColor = ZFALERT_BLACKCLOLR;
-            tf.layer.borderWidth = 0.5;
-            [tf addTarget:self action:@selector(changeTextFieldText:) forControlEvents:UIControlEventEditingChanged];
-            [tf setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
-            tf.clearButtonMode = UITextFieldViewModeAlways;
-            [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingLeft"];
-            [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingRight"];
-            tf.layer.borderColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:243/255.0 alpha:1.0].CGColor;
-            tf;
-        });
-        [self.contentView addSubview:self.textFiled];
-    }
-    
-    self.lineHorView = ({
-        UIView *view = [[UIView alloc] init];
-        [view setBackgroundColor:ZFALERT_LINE_COLOR];
-        view;
-    });
-    [self.contentView addSubview:self.lineHorView];
-    
-    
-    self.bottomButtonView = ({
-        UIView *view = [[UIView alloc] init];
-        view;
-    });
-    [self.contentView addSubview:self.bottomButtonView];
     
     int count = self.actionArray.count > 3 ? 3 : (int)self.actionArray.count;
     NSMutableArray *btnsArray = [NSMutableArray arrayWithCapacity:3];
