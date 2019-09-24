@@ -28,9 +28,9 @@ typedef void(^textFieldTextChanged)(NSString *text, UITextField *textField);
 @end
 
 typedef NS_OPTIONS(NSUInteger, ZFAlertViewControllerStyleOption) {
-    ZFAlertViewControllerOptionTitle = 1 << 0, //   1
-    ZFAlertViewControllerOptionMessage = 1 << 1,// 10
-    ZFAlertViewControllerOptionInput = 1 << 2, // 100
+    ZFAlertViewControllerOptionTitle = 1 << 0,
+    ZFAlertViewControllerOptionMessage = 1 << 1,
+    ZFAlertViewControllerOptionInput = 1 << 2,
     ZFAlertViewControllerOptionTitle_Message = ZFAlertViewControllerOptionTitle | ZFAlertViewControllerOptionMessage,
     ZFAlertViewControllerOptionTitle_Input = ZFAlertViewControllerOptionTitle | ZFAlertViewControllerOptionInput,
     ZFAlertViewControllerOptionMessage_Input = ZFAlertViewControllerOptionMessage | ZFAlertViewControllerOptionInput,
@@ -49,6 +49,7 @@ typedef NS_OPTIONS(NSUInteger, ZFAlertViewControllerStyleOption) {
 @property (nonatomic, strong) UIFont *messageFont; // default [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
 
 @property(nonatomic, copy) NSString *textFiledPlaceholder;
+@property(nonatomic, copy) NSAttributedString *textFiledAttributedPlaceholder;
 
 @property(nonatomic, copy) textFieldTextChanged textChangeCallback;
 

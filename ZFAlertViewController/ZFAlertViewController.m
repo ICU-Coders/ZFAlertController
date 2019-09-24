@@ -133,7 +133,7 @@ static int NOMAL_CONTENT_MARGIN = 12;
                 tf.textColor = ZFALERT_BLACKCLOLR;
                 tf.layer.borderWidth = 0.5;
                 [tf addTarget:self action:@selector(changeTextFieldText:) forControlEvents:UIControlEventEditingChanged];
-                NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"请输入起点" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]}];
+                NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"  请输入..." attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]}];
                 tf.attributedPlaceholder = placeholder;
                 
                 tf.clearButtonMode = UITextFieldViewModeAlways;
@@ -283,6 +283,16 @@ static int NOMAL_CONTENT_MARGIN = 12;
 - (void)addAction:(ZFAlertViewAction *)action {
     [self.actionArray addObject:action];
     
+}
+
+- (void)setTextFiledPlaceholder:(NSString *)textFiledPlaceholder {
+    _textFiledPlaceholder = textFiledPlaceholder;
+    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:_textFiledPlaceholder attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]}];
+    _textFiled.attributedPlaceholder = placeholder;
+}
+-(void)setTextFiledAttributedPlaceholder:(NSAttributedString *)textFiledAttributedPlaceholder {
+    _textFiledAttributedPlaceholder = textFiledAttributedPlaceholder;
+    _textFiled.attributedPlaceholder = _textFiledAttributedPlaceholder;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
