@@ -133,7 +133,9 @@ static int NOMAL_CONTENT_MARGIN = 12;
                 tf.textColor = ZFALERT_BLACKCLOLR;
                 tf.layer.borderWidth = 0.5;
                 [tf addTarget:self action:@selector(changeTextFieldText:) forControlEvents:UIControlEventEditingChanged];
-                [tf setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+                NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"请输入起点" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]}];
+                tf.attributedPlaceholder = placeholder;
+                
                 tf.clearButtonMode = UITextFieldViewModeAlways;
                 [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingLeft"];
                 [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingRight"];
