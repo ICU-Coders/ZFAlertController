@@ -1,1 +1,20 @@
-lazy to here
+### 一款高度定制化AlertView弹窗
+### Usage
+和UIAlertviewController相同
+
+```
+多种类型可供选择
+ZFAlertViewControllerOptionTitle = 1 << 0,
+ZFAlertViewControllerOptionMessage = 1 << 1,
+ZFAlertViewControllerOptionInput = 1 << 2,
+ZFAlertViewControllerOptionTitle_Message,
+ZFAlertViewControllerOptionTitle_Input,
+ZFAlertViewControllerOptionMessage_Input,
+ZFAlertViewControllerOptionTitle_Message_Input,
+```
+![message](/pic/message.png)
+![input](/pic/input.png)
+![title_input](/pic/title_input.png)
+![title_message_input](/pic/title_message_input.png)
+![title_message](/pic/title_message.png)
+![title](/pic/title.png)
