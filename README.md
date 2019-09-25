@@ -3,7 +3,6 @@
 和UIAlertviewController相同
 
 ```
-多种类型可供选择
 ZFAlertViewControllerOptionTitle = 1 << 0,
 ZFAlertViewControllerOptionMessage = 1 << 1,
 ZFAlertViewControllerOptionInput = 1 << 2,
@@ -21,5 +20,3 @@ ZFAlertViewControllerOptionTitle_Message_Input,
 ![title_message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message.png)
 ![title](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title.png)
 
-
-![CircleImageView](https://raw.github.com/hdodenhof/CircleImageView/master/screenshot.png)
