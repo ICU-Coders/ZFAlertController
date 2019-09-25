@@ -20,3 +20,6 @@ ZFAlertViewControllerOptionTitle_Message_Input,
 ![title_message_input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message_input.png)
 ![title_message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message.png)
 ![title](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title.png)
+
+
+![CircleImageView](https://raw.github.com/hdodenhof/CircleImageView/master/screenshot.png)
