@@ -1,6 +1,6 @@
 ### 一款高度定制化AlertView弹窗
 ### - Usage
-和UIAlertViewController相同
+Same with UIAlertViewController
 
 ```
 ZFAlertViewControllerOptionTitle = 1 << 0,
@@ -12,11 +12,16 @@ ZFAlertViewControllerOptionMessage_Input,
 ZFAlertViewControllerOptionTitle_Message_Input,
 ```
 
-
-![message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/message.png)
-![input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/input.png)
-![title_input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_input.png)
-![title_message_input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message_input.png)
-![title_message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message.png)
+#### - 只有标题
 ![title](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title.png)
+#### - 只有描述
+![message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/message.png)
+#### - 只有输入
+![input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/input.png)
+#### - 标题/描述
+![title_message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message.png)
+#### - 标题/输入
+![title_input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_input.png)
+#### - 标题/描述/输入
+![title_message_input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message_input.png)
 
