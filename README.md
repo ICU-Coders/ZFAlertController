@@ -1,6 +1,6 @@
 ### 一款高度定制化AlertView弹窗
-### Usage
-和UIAlertviewController相同
+### - Usage
+和UIAlertViewController相同
 
 ```
 ZFAlertViewControllerOptionTitle = 1 << 0,
