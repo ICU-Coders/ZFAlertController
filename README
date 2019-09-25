@@ -12,9 +12,11 @@ ZFAlertViewControllerOptionTitle_Input,
 ZFAlertViewControllerOptionMessage_Input,
 ZFAlertViewControllerOptionTitle_Message_Input,
 ```
-![message](/pic/message.png)
-![input](/pic/input.png)
-![title_input](/pic/title_input.png)
-![title_message_input](/pic/title_message_input.png)
-![title_message](/pic/title_message.png)
-![title](/pic/title.png)
+
+
+![message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/message.png)
+![input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/input.png)
+![title_input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_input.png)
+![title_message_input](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message_input.png)
+![title_message](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title_message.png)
+![title](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title.png)
