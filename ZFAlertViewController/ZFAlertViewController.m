@@ -70,7 +70,7 @@ static int NOMAL_CONTENT_MARGIN = 12;
         self.modalPresentationStyle = UIModalPresentationOverFullScreen;
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
-        self.textFiledPlaceholder = @"  请输入...";
+        self.textFiledPlaceholder = @"请输入...";
         _backgroundColor = [UIColor whiteColor];
         _titleColor = ZFALERT_BLACKCLOLR;
         _messageColor = ZFALERT_BLACKCLOLR;
@@ -134,8 +134,9 @@ static int NOMAL_CONTENT_MARGIN = 12;
                 tf.layer.borderWidth = 0.5;
                 [tf addTarget:self action:@selector(changeTextFieldText:) forControlEvents:UIControlEventEditingChanged];
                 tf.clearButtonMode = UITextFieldViewModeAlways;
-                [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingLeft"];
-                [tf setValue:[NSNumber numberWithInt:NOMAL_CONTENT_MARGIN] forKey:@"paddingRight"];
+                CGRect frame = CGRectMake(0, 0, 10, 20);
+                [tf setLeftView:[[UIView alloc] initWithFrame:frame]];
+                [tf setLeftViewMode:UITextFieldViewModeAlways];
                 tf.layer.borderColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:243/255.0 alpha:1.0].CGColor;
                 tf;
             });
@@ -159,6 +160,10 @@ static int NOMAL_CONTENT_MARGIN = 12;
         
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad {
@@ -185,6 +190,13 @@ static int NOMAL_CONTENT_MARGIN = 12;
         [btnsArray addObject:button];
     }
     self.buttonsArray = btnsArray.copy;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (self.styleOption & ZFAlertViewControllerOptionInput) {
+            [self.textFiled becomeFirstResponder];
+        }
+    });
+    
 }
 
 - (void)buttonClicked:(UIButton *)button {
