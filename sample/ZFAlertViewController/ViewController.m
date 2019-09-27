@@ -7,69 +7,45 @@
 //
 
 #import "ViewController.h"
-#import "ZFAlertViewController.h"
+#import "ZFAlertController.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor yellowColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
 }
+
 - (IBAction)buttclick:(UIButton *)sender {
+
+    ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"" message:@"" style:ZFAlertControllerStyleActionSheet];
     
-    int tag = (int)sender.tag;
-    ZFAlertViewControllerStyleOption option;
-    switch (tag) {
-        case 0:
-            option = ZFAlertViewControllerOptionTitle;
-            break;
-        case 1:
-            option = ZFAlertViewControllerOptionMessage;
-            break;
-        case 2:
-            option = ZFAlertViewControllerOptionInput;
-            break;
-        case 3:
-            option = ZFAlertViewControllerOptionTitle_Message;
-            break;
-        case 4:
-            option = ZFAlertViewControllerOptionTitle_Input;
-            break;
-        case 5:
-            option = ZFAlertViewControllerOptionTitle_Message_Input;
-            break;
-        default:
-            option = ZFAlertViewControllerOptionTitle_Message_Input;
-            break;
-    }
-    
-    ZFAlertViewController *alertVC = [ZFAlertViewController alertWithTitle:@"标题" message:@"描述" style:option];
-    alertVC.textChangeCallback = ^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
-        NSLog(@"text:%@", text);
-    };
-    
-    ZFAlertViewAction *ok = [ZFAlertViewAction actionWithTitle:@"确定" action:^{
+//    [alertVC addTextFiledWithText:@"" placeholder:@"请输入..." textFieldTextChangedCallback:^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
+//        NSLog(@"text1:%@", text);
+//    }];
+    ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
         NSLog(@"ok");
         [self testFunc];
     }];
-    ok.titleColor = ZFALERT_OK_CLOLR;
-    ZFAlertViewAction *cancel = [ZFAlertViewAction actionWithTitle:@"取消" action:^{
+    ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
         NSLog(@"cancel");
     }];
-    
-    [alertVC addAction:cancel];
+    cancel.verticalSpaceMargin = 10;
+    cancel.horizontalSpaceMargin = 0;
+    cancel.titleColor = ZFALERT_OK_CLOLR;
     [alertVC addAction:ok];
-    
+    [alertVC addAction:cancel];
+    alertVC.actionSheetIgnoreXSeriesBottomInset = YES;
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 
 - (void)testFunc {
     NSLog(@"%s",  __func__);
+    
 }
 @end

@@ -1,17 +1,11 @@
 ### 一款高度定制化AlertView弹窗
+> 使用方法和UIAlertView一样，详见sample
 ### - Usage
-Same with UIAlertViewController
-
 ```
-ZFAlertViewControllerOptionTitle = 1 << 0,
-ZFAlertViewControllerOptionMessage = 1 << 1,
-ZFAlertViewControllerOptionInput = 1 << 2,
-ZFAlertViewControllerOptionTitle_Message,
-ZFAlertViewControllerOptionTitle_Input,
-ZFAlertViewControllerOptionMessage_Input,
-ZFAlertViewControllerOptionTitle_Message_Input,
+pod 'ZFAlertViewController'
 ```
 
+### -提供的类型
 #### - 只有标题
 ![title](https://github.com/FranLucky/ZFAlertViewController/blob/master/pic/title.png)
 #### - 只有描述
