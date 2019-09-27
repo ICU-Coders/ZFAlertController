@@ -1,6 +1,6 @@
 //
-//  ZFAlertViewController.h
-//  ZFAlertViewController
+//  ZFAlertController.h
+//  ZFAlertController
 //
 //  Created by 张帆 on 2019/9/23.
 //  Copyright © 2019 张帆. All rights reserved.

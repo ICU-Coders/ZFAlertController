@@ -8,16 +8,16 @@
 
 
 Pod::Spec.new do |s|
-  s.name         = "ZFAlertViewController"
-  s.version      = "0.0.9"
-  s.summary      = "No short description of ZFAlertViewController."
-  s.homepage     = "https://github.com/FranLucky/ZFAlertViewController"
+  s.name         = "ZFAlertController"
+  s.version      = "0.1.0"
+  s.summary      = "No short description of ZFAlertController."
+  s.homepage     = "https://github.com/FranLucky/ZFAlertController"
   s.license      = { :type => "MIT"}
   s.author       = { "Pokeey" => "zhangfan8080@gmail.com" }
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
-  s.source       = { :git => "https://github.com/FranLucky/ZFAlertViewController.git", :tag => "#{s.version}" }
-  s.source_files  = "ZFAlertViewController/*.{h,m}"
+  s.source       = { :git => "https://github.com/FranLucky/ZFAlertController.git", :tag => "#{s.version}" }
+  s.source_files  = "ZFAlertController/*.{h,m}"
   s.frameworks = "Foundation","UIKit"
   s.requires_arc = true
 end

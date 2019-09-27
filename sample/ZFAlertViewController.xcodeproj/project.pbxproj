@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		7D77C2782339C806002029AE /* ZFAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFAlertController.m; sourceTree = "<group>"; };
 		7D77C2792339C806002029AE /* ZFAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFAlertController.h; sourceTree = "<group>"; };
-		7DAFB5052338582D00A1A8E9 /* ZFAlertViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFAlertViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DAFB5052338582D00A1A8E9 /* ZFAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DAFB5082338582D00A1A8E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7DAFB5092338582D00A1A8E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7DAFB50B2338582D00A1A8E9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -42,20 +42,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D77C2772339C806002029AE /* ZFAlertViewController */ = {
+		7D77C2772339C806002029AE /* ZFAlertController */ = {
 			isa = PBXGroup;
 			children = (
 				7D77C2792339C806002029AE /* ZFAlertController.h */,
 				7D77C2782339C806002029AE /* ZFAlertController.m */,
 			);
-			name = ZFAlertViewController;
-			path = ../../ZFAlertViewController;
+			name = ZFAlertController;
+			path = ../../ZFAlertController;
 			sourceTree = "<group>";
 		};
 		7DAFB4FC2338582D00A1A8E9 = {
 			isa = PBXGroup;
 			children = (
-				7DAFB5072338582D00A1A8E9 /* ZFAlertViewController */,
+				7DAFB5072338582D00A1A8E9 /* ZFAlertController */,
 				7DAFB5062338582D00A1A8E9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,15 +63,15 @@
 		7DAFB5062338582D00A1A8E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7DAFB5052338582D00A1A8E9 /* ZFAlertViewController.app */,
+				7DAFB5052338582D00A1A8E9 /* ZFAlertController.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7DAFB5072338582D00A1A8E9 /* ZFAlertViewController */ = {
+		7DAFB5072338582D00A1A8E9 /* ZFAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				7D77C2772339C806002029AE /* ZFAlertViewController */,
+				7D77C2772339C806002029AE /* ZFAlertController */,
 				7DAFB5082338582D00A1A8E9 /* AppDelegate.h */,
 				7DAFB5092338582D00A1A8E9 /* AppDelegate.m */,
 				7DAFB50B2338582D00A1A8E9 /* ViewController.h */,
@@ -82,7 +82,7 @@
 				7DAFB5162338582E00A1A8E9 /* Info.plist */,
 				7DAFB5172338582E00A1A8E9 /* main.m */,
 			);
-			path = ZFAlertViewController;
+			path = ZFAlertController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,7 +102,7 @@
 			);
 			name = ZFAlertViewController;
 			productName = ZFAlertViewController;
-			productReference = 7DAFB5052338582D00A1A8E9 /* ZFAlertViewController.app */;
+			productReference = 7DAFB5052338582D00A1A8E9 /* ZFAlertController.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -302,14 +302,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22HHB2G722;
-				INFOPLIST_FILE = ZFAlertViewController/Info.plist;
+				INFOPLIST_FILE = ZFAlertController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.wkwebview.ZFAlertViewController;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZFAlertController;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -320,14 +320,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22HHB2G722;
-				INFOPLIST_FILE = ZFAlertViewController/Info.plist;
+				INFOPLIST_FILE = ZFAlertController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.wkwebview.ZFAlertViewController;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZFAlertController;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
