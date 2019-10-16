@@ -74,6 +74,7 @@ typedef void(^actionCallback)(void);
 @property(nonatomic, assign) float messageHeight;
 
 @property (nonatomic, strong) NSMutableArray *buttonsArray;
+@property (nonatomic, strong) NSMutableArray *actionsArray;
 @property (nonatomic, strong) NSMutableDictionary *actionCallbacks;
 @property (nonatomic, strong) NSMutableArray *textFiledArray;
 @property (nonatomic, strong) NSMutableDictionary *textFiledCallbacks;
@@ -104,7 +105,13 @@ typedef void(^actionCallback)(void);
         _titleText = title;
         _messageText = message;
         
+        _titleSpace = NOMAL_CONTENT_MARGIN;
+        _messageSpace = NOMAL_CONTENT_MARGIN;
+        _textFieldSpace = NOMAL_CONTENT_MARGIN;
+        _buttonsSpace = NOMAL_CONTENT_MARGIN * 2;
+        
         self.buttonsArray = [NSMutableArray arrayWithCapacity:10];
+        self.actionsArray = [NSMutableArray arrayWithCapacity:10];
         self.actionCallbacks = [NSMutableDictionary dictionaryWithCapacity:10];
         self.textFiledArray = [NSMutableArray arrayWithCapacity:10];
         self.textFiledCallbacks = [NSMutableDictionary dictionaryWithCapacity:10];
@@ -206,21 +213,21 @@ typedef void(^actionCallback)(void);
     }
     
     if (self.titleText.length > 0) {
-        y += NOMAL_CONTENT_MARGIN;
+        y += self.titleSpace;
         [self.titleLabel setFrame:CGRectMake(x, y, contentWidth, self.titleHeight)];
         y += self.titleHeight;
     }
     
     if (self.messageText.length > 0) {
-        if (y == 0) y += NOMAL_CONTENT_MARGIN;
-        y += (NOMAL_CONTENT_MARGIN - 5);
+        if (y == 0) y += self.messageSpace;
+        y += (self.messageSpace - 5);
         [self.messageLabel setFrame:CGRectMake(x, y, contentWidth, self.messageHeight)];
         y += self.messageHeight + 5;
     }
     
     if (self.textFiledArray.count > 0) {
         for (UITextField *textField in self.textFiledArray) {
-            y += NOMAL_CONTENT_MARGIN;
+            y += self.textFieldSpace;
             [textField setFrame:CGRectMake(20, y, contentWidth - 20, 35)];
             y += 30;
         }
@@ -237,7 +244,7 @@ typedef void(^actionCallback)(void);
         float btnH = 44;
         if (self.style == ZFAlertControllerStyleAlert) {
             // hor
-            y += NOMAL_CONTENT_MARGIN * 2;
+            y += self.buttonsSpace;
             [self.lineHorView setFrame:CGRectMake(0, y, NOMAL_ALERT_WIDTH, 1)];
             y += 1;
             [self.bottomButtonView setFrame:CGRectMake(0, y, NOMAL_ALERT_WIDTH, 44)];
@@ -260,7 +267,7 @@ typedef void(^actionCallback)(void);
             BOOL haveOtherElement = NO;
             if (y > 0) {
                 haveOtherElement = YES;
-                y += NOMAL_CONTENT_MARGIN;
+                y += (self.buttonsSpace * .5);
             }
             float btnWidth = ZF_SCREEN_WIDTH;
             float tempy = y;
@@ -310,9 +317,12 @@ typedef void(^actionCallback)(void);
     }
     [self.view endEditing:YES];
     [self.actionCallbacks removeAllObjects];
+    [self.actionsArray removeAllObjects];
     [self.textFiledArray removeAllObjects];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 - (void)changeTextFieldText:(UITextField *)tf {
     if (tf.markedTextRange == nil) {
@@ -360,6 +370,7 @@ typedef void(^actionCallback)(void);
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButtonView addSubview:button];
     }
+    [self.actionsArray addObject:action];
     [self.buttonsArray addObject:button];
     self.actionCallbacks[@(button.tag)] = action;
 
@@ -390,6 +401,14 @@ typedef void(^actionCallback)(void);
         self.textFiledCallbacks[@(tf.tag)] = textFieldTextChangedCallback;
     }
     return tf;
+}
+
+- (NSArray<UITextField *> *)textFields {
+    return _textFiledArray.copy;
+}
+
+- (NSArray<ZFAlertAction *> *)actions {
+    return _actionsArray.copy;
 }
 
 - (void)setContentBackgroundColor:(UIColor *)backgroundColor {
