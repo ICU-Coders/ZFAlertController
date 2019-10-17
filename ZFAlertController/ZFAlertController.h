@@ -103,6 +103,10 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
  * Default 5
  */
 @property(nonatomic, assign) float cornerRadius;
+/**
+ * Default UIRectCornerAllCorners
+ */
+@property(nonatomic, assign) UIRectCorner roundingCorners;
 
 @property (nonatomic, strong, readonly) NSArray<ZFAlertAction *> *actions;
 

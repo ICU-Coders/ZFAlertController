@@ -70,6 +70,8 @@ typedef void(^actionCallback)(void);
 @property (nonatomic, strong) UIView *lineVecView;
 @property (nonatomic, strong) UIView *bottomButtonView;
 
+@property (nonatomic, strong) CAShapeLayer *maskLayer;
+
 @property(nonatomic, assign) float titleHeight;
 @property(nonatomic, assign) float messageHeight;
 
@@ -99,6 +101,7 @@ typedef void(^actionCallback)(void);
         _titleColor = ZFALERT_BLACKCLOLR;
         _messageColor = ZFALERT_BLACKCLOLR;
         _cornerRadius = 5;
+        _roundingCorners = UIRectCornerAllCorners;
         _titleFont = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
         _messageFont = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
         _style = style;
@@ -121,10 +124,11 @@ typedef void(^actionCallback)(void);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
         
+        self.maskLayer = [[CAShapeLayer alloc] init];
         self.contentView = ({
             UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
             [view setBackgroundColor:self.contentBackgroundColor];
-            view.layer.cornerRadius = self.cornerRadius;
+            view.layer.mask = self.maskLayer;
             view;
         });
         
@@ -291,7 +295,6 @@ typedef void(^actionCallback)(void);
         }
         
     }
-    
     if (self.style == ZFAlertControllerStyleAlert) {
         [self.contentView setFrame:CGRectMake(0, 0, NOMAL_ALERT_WIDTH, y)];
         [self.contentView setCenter:self.view.center];
@@ -308,6 +311,10 @@ typedef void(^actionCallback)(void);
         }
         [self.contentView setFrame:CGRectMake(0, contentY, ZF_SCREEN_WIDTH, y)];
     }
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.contentView.bounds byRoundingCorners:self.roundingCorners cornerRadii:CGSizeMake(self.cornerRadius, self.cornerRadius)];
+    self.maskLayer.path = maskPath.CGPath;
+    self.maskLayer.frame = self.contentView.bounds;
 }
 
 - (void)buttonClicked:(UIButton *)button {

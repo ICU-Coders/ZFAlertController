@@ -37,3 +37,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
 ```
+### Releases
+
+1.0.1 
+> Add custom corner

@@ -30,6 +30,8 @@
     ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
         NSLog(@"cancel");
     }];
+//    alertVC.cornerRadius = 10;
+//    alertVC.roundingCorners = UIRectCornerTopLeft | UIRectCornerTopRight;
     [alertVC addAction:ok];
     [alertVC addAction:cancel];
     [self presentViewController:alertVC animated:YES completion:nil];
