@@ -1,3 +1,11 @@
+
+ <p align="center" >
+   <img src="https://github.com/FranLucky/IconLib/blob/master/icon.png?raw=true" alt="ZFAlertController" title="ZFAlertController">
+ </p>
+
+ ![podversion](https://img.shields.io/cocoapods/v/ZFAlertController.svg)
+ [![Platform](https://img.shields.io/cocoapods/p/ZFAlertController.svg?style=flat)](http://cocoadocs.org/docsets/ZFAlertController)
+ 
  ZFAlertController is a Highly customizable AlertController for iOS.
  Choose ZFAlertController for your next project, or migrate over your existing projects—you'll be happy you did!
 
