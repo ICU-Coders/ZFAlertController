@@ -27,7 +27,7 @@ pod install --repo-update
 ```
 
 ###  Usage
-All the usages are equal with UIAlertController
+Equal with UIAlertController
 #### ZFAlertControllerStyleAlert
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
