@@ -3,6 +3,7 @@
    <img src="https://github.com/FranLucky/IconLib/blob/master/icon.png?raw=true" alt="ZFAlertController" title="ZFAlertController">
  </p>
 
+ [![Build Status](https://travis-ci.org/FranLucky/ZFAlertController.svg?branch=master)](https://travis-ci.org/FranLucky/ZFAlertController)
  ![podversion](https://img.shields.io/cocoapods/v/ZFAlertController.svg)
  [![Platform](https://img.shields.io/cocoapods/p/ZFAlertController.svg?style=flat)](http://cocoadocs.org/docsets/ZFAlertController)
  
