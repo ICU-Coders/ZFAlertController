@@ -63,7 +63,7 @@ typedef void(^actionCallback)(void);
 
 @property(nonatomic, assign) ZFAlertControllerStyle style;
 
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong, readwrite) UIView *contentView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *messageLabel;
 @property (nonatomic, strong) UIView *lineHorView;
@@ -100,7 +100,7 @@ typedef void(^actionCallback)(void);
         _contentBackgroundColor = [UIColor whiteColor];
         _titleColor = ZFALERT_BLACKCLOLR;
         _messageColor = ZFALERT_BLACKCLOLR;
-        _cornerRadius = 5;
+        _cornerRadius = 15;
         _roundingCorners = UIRectCornerAllCorners;
         _titleFont = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
         _messageFont = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
@@ -111,7 +111,8 @@ typedef void(^actionCallback)(void);
         _titleSpace = NOMAL_CONTENT_MARGIN;
         _messageSpace = NOMAL_CONTENT_MARGIN;
         _textFieldSpace = NOMAL_CONTENT_MARGIN;
-        _buttonsSpace = NOMAL_CONTENT_MARGIN * 2;
+        _buttonsSpace = NOMAL_CONTENT_MARGIN * 1.5;
+        _lineColor = ZFALERT_LINE_COLOR;
         
         self.buttonsArray = [NSMutableArray arrayWithCapacity:10];
         self.actionsArray = [NSMutableArray arrayWithCapacity:10];
@@ -204,7 +205,7 @@ typedef void(^actionCallback)(void);
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    float y = 0;
+    float y = NOMAL_CONTENT_MARGIN;
     float x = NOMAL_CONTENT_MARGIN;
     float contentWidth = 0;
     switch (self.style) {
@@ -249,6 +250,7 @@ typedef void(^actionCallback)(void);
         if (self.style == ZFAlertControllerStyleAlert) {
             // hor
             y += self.buttonsSpace;
+            [self.lineHorView setBackgroundColor:self.lineColor];
             [self.lineHorView setFrame:CGRectMake(0, y, NOMAL_ALERT_WIDTH, 1)];
             y += 1;
             [self.bottomButtonView setFrame:CGRectMake(0, y, NOMAL_ALERT_WIDTH, 44)];
@@ -259,7 +261,7 @@ typedef void(^actionCallback)(void);
                 if (i == 1 || i == self.buttonsArray.count - 1) {
                     UIImageView *line = [[UIImageView alloc] init];
                     [line setFrame:CGRectMake(x + btnWidth * i, 0, 1, btnH)];
-                    [line setBackgroundColor:ZFALERT_LINE_COLOR];
+                    [line setBackgroundColor:self.lineColor];
                     [self.bottomButtonView addSubview:line];
                     x += 1;
                 }
@@ -341,7 +343,7 @@ typedef void(^actionCallback)(void);
     
 }
 - (void)dealloc {
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }

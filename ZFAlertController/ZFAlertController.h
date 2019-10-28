@@ -41,7 +41,7 @@ typedef void(^zf_TextFieldTextChanged)(NSString *text, UITextField *textField);
  */
 @property(nonatomic, assign) CGFloat horizontalSpaceMargin;
 /**
- * Only actionSheet. Default ZFALERT_LINE_COLOR
+ * Only actionSheet, under action. Default ZFALERT_LINE_COLOR
  */
 @property (nonatomic, strong) UIColor *separatoColor;
 
@@ -73,7 +73,8 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 @property(nonatomic, copy) NSString *titleText;
 @property(nonatomic, copy) NSString *messageText;
 /**
- * Title top margin. Default 10.
+ * Title top margin. Default 10(init) + 10.
+ * title.length > 0
  */
 @property(nonatomic, assign) float titleSpace;
 /**
@@ -86,7 +87,7 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 @property(nonatomic, assign) float textFieldSpace;
 /**
  * Button message margin
- * Default alert 20, sheet half(10).
+ * Default alert 15, sheet half.
  *
  */
 @property(nonatomic, assign) float buttonsSpace;
@@ -107,6 +108,12 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
  * Default UIRectCornerAllCorners
  */
 @property(nonatomic, assign) UIRectCorner roundingCorners;
+/**
+ * Buttons line custom color
+ * Nomal ZFALERT_LINE_COLOR
+ * init
+ */
+@property (nonatomic, strong) UIColor *lineColor;
 
 @property (nonatomic, strong, readonly) NSArray<ZFAlertAction *> *actions;
 
@@ -116,6 +123,8 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
  * Default YES. Will never calculate safeArea bottom.
  */
 @property(nonatomic, assign) BOOL actionSheetIgnoreXSeriesBottomInset;
+
+@property (nonatomic, strong, readonly) UIView *contentView;
 
 + (instancetype)alertWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message style:(ZFAlertControllerStyle)style;
 

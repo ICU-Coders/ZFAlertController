@@ -21,7 +21,6 @@
 }
 
 - (IBAction)buttclick:(UIButton *)sender {
-
     ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
     ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
         NSLog(@"ok");
@@ -30,25 +29,38 @@
     ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
         NSLog(@"cancel");
     }];
-//    alertVC.cornerRadius = 10;
-//    alertVC.roundingCorners = UIRectCornerTopLeft | UIRectCornerTopRight;
+    
+    if ([sender.titleLabel.text isEqualToString:@"Custom"]) {
+        // Sorry, It's realy ugly
+        alertVC.backgroudColor = [UIColor redColor];
+        alertVC.contentBackgroundColor = [UIColor blackColor];
+        alertVC.lineColor = [UIColor blueColor];
+        alertVC.messageSpace = 200;
+        alertVC.titleColor = [UIColor cyanColor];
+        alertVC.messageColor = [UIColor purpleColor];
+        ok.titleColor = [UIColor whiteColor];
+        cancel.titleColor = [UIColor yellowColor];
+    }
+    
     [alertVC addAction:ok];
     [alertVC addAction:cancel];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 
+
 - (IBAction)textFields:(id)sender {
+    
     ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"Alert" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
-        [alertVC addTextFiledWithText:@"" placeholder:@"请输入..." textFieldTextChangedCallback:^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
-            NSLog(@"text1:%@", text);
-        }];
-        ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
-            NSLog(@"ok");
-            [self testFunc];
-        }];
-        [alertVC addAction:ok];
-        [self presentViewController:alertVC animated:YES completion:nil];
+    [alertVC addTextFiledWithText:@"" placeholder:@"请输入..." textFieldTextChangedCallback:^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
+        NSLog(@"text1:%@", text);
+    }];
+    ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
+        NSLog(@"ok");
+        [self testFunc];
+    }];
+    [alertVC addAction:ok];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (IBAction)sheet:(id)sender {

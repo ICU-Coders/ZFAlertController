@@ -49,6 +49,14 @@
                                     <action selector="sheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tEP-M6-jjH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="024-ax-kft">
+                                <rect key="frame" x="245" y="128" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Custom"/>
+                                <connections>
+                                    <action selector="buttclick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xwQ-Pk-GOU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
