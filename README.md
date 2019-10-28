@@ -8,7 +8,7 @@
  ![podversion](https://img.shields.io/cocoapods/v/ZFAlertController.svg)
  [![Platform](https://img.shields.io/cocoapods/p/ZFAlertController.svg?style=flat)](http://cocoadocs.org/docsets/ZFAlertController)
  
- **ZFAlertController** is a Highly customizable AlertController for iOS.
+ `ZFAlertController` is a Highly customizable AlertController for iOS.
  Choose `ZFAlertController` for your next project, or migrate over your existing projects—you'll be happy you did!
  
  | Alert      |   actionSheet | 
