@@ -17,7 +17,7 @@
  | **Custom**      |  **TextFiled** | 
  | ![custom](https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg)  |  ![textFiled](https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg) |
 
-## Adding ZFAlertController to your project
+## Adding `ZFAlertController` to your project
 ### CocoaPods
 [CocoaPods](http://cocoapods.org) is the recommended way to add `ZFAlertController` to your project.
 Specify it in your Podfile:
