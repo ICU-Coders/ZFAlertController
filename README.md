@@ -10,10 +10,10 @@
  ZFAlertController is a Highly customizable AlertController for iOS.
  Choose ZFAlertController for your next project, or migrate over your existing projects—you'll be happy you did!
  
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/alert.png" alt="ZFAlertController" title="ZFAlertController">
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/actionSheet.png" alt="ZFAlertController" title="ZFAlertController">
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.png" alt="ZFAlertController" title="ZFAlertController">
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.png" alt="ZFAlertController" title="ZFAlertController">
+ <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/alert.jpg" alt="ZFAlertController" title="ZFAlertController">
+ <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/actionSheet.jpg" alt="ZFAlertController" title="ZFAlertController">
+ <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg" alt="ZFAlertController" title="ZFAlertController">
+ <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg" alt="ZFAlertController" title="ZFAlertController">
 
 ### Installation with CocoaPods
 ##### Podfile
