@@ -17,9 +17,10 @@
  | **Custom**      |  **TextFiled** | 
  | ![custom](https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg)  |  ![textFiled](https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg) |
 
-### Installation with CocoaPods
-##### Podfile
-To integrate `ZFAlertController` into your Xcode project using CocoaPods, specify it in your Podfile:
+## Adding ZFAlertController to your project
+### CocoaPods
+[CocoaPods](http://cocoapods.org) is the recommended way to add `ZFAlertController` to your project.
+Specify it in your Podfile:
 ```
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
@@ -32,10 +33,15 @@ Then, run the following command:
 ```
 pod install --repo-update
 ```
+### Source files
+Alternatively you can directly add the `ZFAlertController.h` and `ZFAlertController.m` source files to your project.
+1. Download the [latest code version](https://github.com/ICU-Coders/ZFAlertController/archive/master.zip) or add the repository as a git submodule to your git-tracked project.
+2. Open your project in Xcode, then drag and drop `ZFAlertController.h` and `ZFAlertController.m` onto your project (use the "Product Navigator view"). Make sure to select Copy items when asked if you extracted the code archive outside of your project.
+3. Include `ZFAlertController` wherever you need it with `#import "ZFAlertController.h"`.
 
-###  Usage
+##  Usage
 Equal with UIAlertController
-#### ZFAlertControllerStyleAlert
+### ZFAlertControllerStyleAlert
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
 ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
@@ -49,12 +55,12 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 [alertVC addAction:cancel];
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
-#### ZFAlertControllerStyleActionSheet
+### ZFAlertControllerStyleActionSheet
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
 ```
 
-#### MIT License
+## MIT License
 
 Copyright (c) 2019 Pokeey
 
