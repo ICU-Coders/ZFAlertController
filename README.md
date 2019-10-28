@@ -13,10 +13,9 @@
  
  | Alert      |   actionSheet | 
  | :-------: | :--------------: |
- |  <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/alert.jpg" alt="ZFAlertController" title="ZFAlertController"> |  <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/actionSheet.jpg" alt="ZFAlertController" title="ZFAlertController"> |
- | Custom      |  TextFiled | 
- | :-------: | :--------------: |
- | <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg" alt="ZFAlertController" title="ZFAlertController"> |  <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg" alt="ZFAlertController" title="ZFAlertController">|
+ |  ![alert](https://github.com/FranLucky/IconLib/blob/master/AlertController/alert.jpg)  |  ![actionSheet](https://github.com/FranLucky/IconLib/blob/master/AlertController/actionSheet.jpg) |
+ | **Custom**      |  **TextFiled** | 
+ | ![custom](https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg)  |  ![textFiled](https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg) |
 
 ### Installation with CocoaPods
 ##### Podfile
