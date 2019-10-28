@@ -9,7 +9,7 @@
  [![Platform](https://img.shields.io/cocoapods/p/ZFAlertController.svg?style=flat)](http://cocoadocs.org/docsets/ZFAlertController)
  
  **ZFAlertController** is a Highly customizable AlertController for iOS.
- Choose ZFAlertController for your next project, or migrate over your existing projects—you'll be happy you did!
+ Choose `ZFAlertController` for your next project, or migrate over your existing projects—you'll be happy you did!
  
  | Alert      |   actionSheet | 
  | :-------: | :--------------: |
@@ -19,7 +19,7 @@
 
 ### Installation with CocoaPods
 ##### Podfile
-To integrate ZFAlertController into your Xcode project using CocoaPods, specify it in your Podfile:
+To integrate `ZFAlertController` into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
