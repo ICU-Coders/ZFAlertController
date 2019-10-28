@@ -2,18 +2,21 @@
  <p align="center" >
    <img src="https://github.com/FranLucky/IconLib/blob/master/icon.png?raw=true" alt="ZFAlertController" title="ZFAlertController">
  </p>
-
+ 
+![MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)
  [![Build Status](https://travis-ci.org/FranLucky/ZFAlertController.svg?branch=master)](https://travis-ci.org/FranLucky/ZFAlertController)
  ![podversion](https://img.shields.io/cocoapods/v/ZFAlertController.svg)
  [![Platform](https://img.shields.io/cocoapods/p/ZFAlertController.svg?style=flat)](http://cocoadocs.org/docsets/ZFAlertController)
  
- ZFAlertController is a Highly customizable AlertController for iOS.
+ **ZFAlertController** is a Highly customizable AlertController for iOS.
  Choose ZFAlertController for your next project, or migrate over your existing projects—you'll be happy you did!
  
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/alert.jpg" alt="ZFAlertController" title="ZFAlertController">
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/actionSheet.jpg" alt="ZFAlertController" title="ZFAlertController">
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg" alt="ZFAlertController" title="ZFAlertController">
- <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg" alt="ZFAlertController" title="ZFAlertController">
+ | Alert      |   actionSheet | 
+ | :-------: | :--------------: |
+ |  <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/alert.jpg" alt="ZFAlertController" title="ZFAlertController"> |  <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/actionSheet.jpg" alt="ZFAlertController" title="ZFAlertController"> |
+ | Custom      |  TextFiled | 
+ | :-------: | :--------------: |
+ | <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg" alt="ZFAlertController" title="ZFAlertController"> |  <img src="https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg" alt="ZFAlertController" title="ZFAlertController">|
 
 ### Installation with CocoaPods
 ##### Podfile
