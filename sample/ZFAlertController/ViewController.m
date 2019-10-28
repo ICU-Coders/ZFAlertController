@@ -22,22 +22,22 @@
 
 - (IBAction)buttclick:(UIButton *)sender {
     ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
-    ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
+    ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
         NSLog(@"ok");
         [self testFunc];
     }];
-    ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
+    ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
         NSLog(@"cancel");
     }];
     
     if ([sender.titleLabel.text isEqualToString:@"Custom"]) {
         // Sorry, It's realy ugly
         alertVC.backgroudColor = [UIColor redColor];
-        alertVC.contentBackgroundColor = [UIColor blackColor];
-        alertVC.lineColor = [UIColor blueColor];
+        alertVC.contentBackgroundColor = [UIColor grayColor];
+        alertVC.lineColor = [UIColor darkGrayColor];
         alertVC.messageSpace = 200;
         alertVC.titleColor = [UIColor cyanColor];
-        alertVC.messageColor = [UIColor purpleColor];
+        alertVC.messageColor = [UIColor whiteColor];
         ok.titleColor = [UIColor whiteColor];
         cancel.titleColor = [UIColor yellowColor];
     }
@@ -52,10 +52,10 @@
 - (IBAction)textFields:(id)sender {
     
     ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"Alert" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
-    [alertVC addTextFiledWithText:@"" placeholder:@"请输入..." textFieldTextChangedCallback:^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
+    [alertVC addTextFiledWithText:@"" placeholder:@"Input..." textFieldTextChangedCallback:^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
         NSLog(@"text1:%@", text);
     }];
-    ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
+    ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
         NSLog(@"ok");
         [self testFunc];
     }];
@@ -66,11 +66,11 @@
 - (IBAction)sheet:(id)sender {
     ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
         
-        ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
+        ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
             NSLog(@"ok");
             [self testFunc];
         }];
-        ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
+        ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
             NSLog(@"cancel");
         }];
         {

@@ -12,6 +12,8 @@
 
 static int NOMAL_ALERT_WIDTH = 270;
 static int NOMAL_CONTENT_MARGIN = 10;
+static int NOMAL_KEYBOARD_JUDGE_MARGIN = 30;
+static int NOMAL_KEYBOARD_SPACE_MARGIN = 50;
 
 static inline BOOL isIPhoneXSeries() {
     BOOL iPhoneXSeries = NO;
@@ -351,9 +353,9 @@ typedef void(^actionCallback)(void);
     CGRect frame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat keyboardMinY = CGRectGetMinY(frame);
     CGFloat alertMaxY = CGRectGetMaxY(self.contentView.frame);
-    CGFloat margin = 50;
+    CGFloat margin = NOMAL_KEYBOARD_SPACE_MARGIN;
     CGFloat diff = keyboardMinY - alertMaxY;
-    if (diff < 0) {
+    if (diff < NOMAL_KEYBOARD_JUDGE_MARGIN) {
         CGPoint center = self.view.center;
         center.y -= (margin - diff);
         [UIView animateWithDuration:.3 animations:^{
