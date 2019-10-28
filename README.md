@@ -1,6 +1,6 @@
 
  <p align="center" >
-   <img src="https://github.com/FranLucky/IconLib/blob/master/icon.png?raw=true" alt="ZFAlertController" title="ZFAlertController">
+   <img src="https://raw.githubusercontent.com/FranLucky/IconLib/master/icon.png" alt="ZFAlertController" title="ZFAlertController">
  </p>
  
 ![MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)
@@ -13,9 +13,9 @@
  
  | Alert      |   actionSheet | 
  | :-------: | :--------------: |
- |  ![alert](https://github.com/FranLucky/IconLib/blob/master/AlertController/alert.jpg)  |  ![actionSheet](https://github.com/FranLucky/IconLib/blob/master/AlertController/actionSheet.jpg) |
+ |  ![alert](https://raw.githubusercontent.com/FranLucky/IconLib/master/AlertController/actionSheet.jpg)  |  ![actionSheet](https://raw.githubusercontent.com/FranLucky/IconLib/master/AlertController/alert.jpg) |
  | **Custom**      |  **TextFiled** | 
- | ![custom](https://github.com/FranLucky/IconLib/blob/master/AlertController/custom.jpg)  |  ![textFiled](https://github.com/FranLucky/IconLib/blob/master/AlertController/textFiled.jpg) |
+ | ![custom](https://raw.githubusercontent.com/FranLucky/IconLib/master/AlertController/custom.jpg)  |  ![textFiled](https://raw.githubusercontent.com/FranLucky/IconLib/master/AlertController/textFiled.jpg) |
 
 ## Adding `ZFAlertController` to your project
 ### CocoaPods
