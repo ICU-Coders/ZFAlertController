@@ -98,6 +98,14 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 @property(nonatomic, copy) NSString *titleText;
 @property(nonatomic, copy) NSString *messageText;
 /**
+ * Nomal CGSizeZero ZFAlertControllerStyleAlert
+ * height = 0 means auto
+ * width min = NOMAL_ALERT_WIDTH
+ */
+
+@property(nonatomic, assign) CGSize minAlertSize;
+
+/**
  * Title top margin. Default 10(init) + 10.
  * title.length > 0
  */

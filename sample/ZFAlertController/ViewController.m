@@ -21,7 +21,7 @@
 }
 
 - (IBAction)buttclick:(UIButton *)sender {
-    ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:\nalertWithTitle:message:style:\nalertWithTitle:message:style:\nalertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
+    ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"alertWithTitle" message:@"" style:ZFAlertControllerStyleAlert];
     ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
         NSLog(@"ok");
         [self testFunc];
@@ -54,10 +54,10 @@
         } config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
             [customView setFrame:CGRectMake(CGRectGetMaxX(contentView.frame) - 44, contentView.frame.origin.y - 44 - 10, 44, 44)];
         }];
-        
+        alertVC.minAlertSize = CGSizeMake(0, 166);
     }
-    [alertVC addAction:ok];
-    [alertVC addAction:cancel];
+//    [alertVC addAction:ok];
+//    [alertVC addAction:cancel];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 

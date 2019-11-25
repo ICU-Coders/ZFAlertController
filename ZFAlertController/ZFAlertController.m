@@ -340,7 +340,9 @@ typedef void(^actionCallback)(void);
         y += NOMAL_CONTENT_MARGIN * 2;
     }
     if (self.style == ZFAlertControllerStyleAlert) {
-        [self.contentView setFrame:CGRectMake(0, 0, NOMAL_ALERT_WIDTH, y)];
+        if (y < self.minAlertSize.height) y = self.minAlertSize.height;
+        float width = MAX(self.minAlertSize.width, NOMAL_ALERT_WIDTH);
+        [self.contentView setFrame:CGRectMake(0, 0, width, y)];
         [self.contentView setCenter:self.view.center];
     } else if (self.style == ZFAlertControllerStyleActionSheet) {
         CGFloat contentY = self.view.frame.size.height - y;

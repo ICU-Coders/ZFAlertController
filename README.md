@@ -26,7 +26,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'ZFAlertController', '~> 1.0.3'
+pod 'ZFAlertController', '~> 1.0.4'
 end
 ```
 Then, run the following command:
@@ -82,7 +82,7 @@ or add a button
 } config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
     [customView setFrame:CGRectMake(CGRectGetMaxX(contentView.frame) - 44, contentView.frame.origin.y - 44 - 10, 44, 44)];
 }];
-```
+
 
 ## MIT License
 
