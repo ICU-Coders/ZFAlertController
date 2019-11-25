@@ -70,7 +70,7 @@ ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" me
     [customView setFrame:CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y - 53, contentView.frame.size.width, 53)];
 }];
 ```
-or add a button 
+Or add a button 
 
 ```
 [alertVC addCustomButton:^UIButton * _Nonnull{
@@ -82,8 +82,8 @@ or add a button
 } config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
     [customView setFrame:CGRectMake(CGRectGetMaxX(contentView.frame) - 44, contentView.frame.origin.y - 44 - 10, 44, 44)];
 }];
-
-
+```
+        
 ## MIT License
 
 Copyright (c) 2019 Pokeey
