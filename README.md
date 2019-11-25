@@ -26,7 +26,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'ZFAlertController', '~> 1.0.2'
+pod 'ZFAlertController', '~> 1.0.3'
 end
 ```
 Then, run the following command:
@@ -58,6 +58,30 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 ### ZFAlertControllerStyleActionSheet
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
+```
+
+### Add custom view
+```
+[alertVC addCustomView:^UIView * _Nonnull{
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"success"]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    return imageView;
+} config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
+    [customView setFrame:CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y - 53, contentView.frame.size.width, 53)];
+}];
+```
+or add a button 
+
+```
+[alertVC addCustomButton:^UIButton * _Nonnull{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+    return button;
+} buttonAction:^(UIViewController * _Nonnull alert) {
+    [alert dismissViewControllerAnimated:YES completion:nil];
+} config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
+    [customView setFrame:CGRectMake(CGRectGetMaxX(contentView.frame) - 44, contentView.frame.origin.y - 44 - 10, 44, 44)];
+}];
 ```
 
 ## MIT License

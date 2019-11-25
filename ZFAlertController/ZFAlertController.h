@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 #define ZFALERT_LINE_COLOR [UIColor colorWithRed:240/255.0 green:240/255.0 blue:243/255.0 alpha:1.0]
 
 typedef void(^zf_TextFieldTextChanged)(NSString *text, UITextField *textField);
+typedef void(^zf_CustomViewConfig)(UIView *contentView, UIView *customView);
+typedef UIView *_Nonnull(^zf_CustomView)(void);
+typedef UIButton *_Nonnull(^zf_CustomButton)(void);
+typedef void(^zf_CustomButtonAction)(UIViewController *alert);
 
 @interface ZFAlertAction : NSObject
 
@@ -53,6 +57,23 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 };
 
 @interface ZFAlertController : UIViewController
+
+
++ (instancetype)alertWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message style:(ZFAlertControllerStyle)style;
+
+- (void)addAction:(ZFAlertAction *)action;
+
+- (UITextField *)addTextFiledWithText:(NSString *)text placeholder:(NSString *)placeholder textFieldTextChangedCallback:(zf_TextFieldTextChanged)textFieldTextChangedCallback;
+/**
+ * highest priority
+ * config base on contentView, config() will take on viewWillLayoutSubviews
+ * view will add by [self.view addSubview:view]
+ */
+- (UIView *)addCustomView:(zf_CustomView)view config:(zf_CustomViewConfig)config;
+- (void)addCustomButton:(zf_CustomButton)view buttonAction:(zf_CustomButtonAction)action config:(zf_CustomViewConfig)config;
+
+
+
 /**
  * Background cover color,default [UIColor colorWithWhite:0 alpha:.6]
  */
@@ -61,6 +82,10 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
  * Alert background color,default [UIColor whiteColor]
  */
 @property (nonatomic, strong) UIColor *contentBackgroundColor;
+/**
+ * Level > contentBackgroundColor
+*/
+@property (nonatomic, strong) UIImage *contentBackgroundImage;
 /**
  * Default red:19/255.0 green:19/255.0 blue:54/255.0 alpha:1
  */
@@ -126,11 +151,11 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 
 @property (nonatomic, strong, readonly) UIView *contentView;
 
-+ (instancetype)alertWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message style:(ZFAlertControllerStyle)style;
-
-- (void)addAction:(ZFAlertAction *)action;
-
-- (UITextField *)addTextFiledWithText:(NSString *)text placeholder:(NSString *)placeholder textFieldTextChangedCallback:(zf_TextFieldTextChanged)textFieldTextChangedCallback;
+/**
+ * default NO
+ * if yes, alert will dismiss when clicked the black
+ */
+@property(nonatomic, assign) BOOL blankClickDismiss;
 
 
 @end

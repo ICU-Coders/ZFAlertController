@@ -7,6 +7,7 @@
 //
 
 #import "ZFAlertController.h"
+#import <objc/runtime.h>
 
 #define ZF_SCREEN_WIDTH self.view.frame.size.width
 
@@ -32,6 +33,7 @@ static inline BOOL isIPhoneXSeries() {
 }
 
 typedef void(^actionCallback)(void);
+
 
 @interface ZFAlertAction ()
 @property(nonatomic, copy) actionCallback action;
@@ -60,12 +62,26 @@ typedef void(^actionCallback)(void);
 
 @end
 
+@interface UIView (Custom)
+@property(nonatomic, copy) NSString *customIdentify;
+@end
+
+@implementation UIView (Custom)
+
+- (void)setCustomIdentify:(NSString *)customIdentify {
+    objc_setAssociatedObject(self, @"customIdentify", customIdentify, OBJC_ASSOCIATION_COPY);
+}
+- (NSString *)customIdentify {
+    return objc_getAssociatedObject(self, @"customIdentify");
+}
+@end
 
 @interface ZFAlertController ()
 
 @property(nonatomic, assign) ZFAlertControllerStyle style;
-
+@property (nonatomic, strong) UIButton *coverButton;
 @property (nonatomic, strong, readwrite) UIView *contentView;
+@property (nonatomic, strong) UIImageView *contentImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *messageLabel;
 @property (nonatomic, strong) UIView *lineHorView;
@@ -82,6 +98,9 @@ typedef void(^actionCallback)(void);
 @property (nonatomic, strong) NSMutableDictionary *actionCallbacks;
 @property (nonatomic, strong) NSMutableArray *textFiledArray;
 @property (nonatomic, strong) NSMutableDictionary *textFiledCallbacks;
+@property (nonatomic, strong) NSMutableSet *customViewSet;
+@property (nonatomic, strong) NSMutableDictionary *customViewConfigs;
+@property (nonatomic, strong) NSMutableDictionary *customButtonActions;
 @end
 
 @implementation ZFAlertController
@@ -118,7 +137,10 @@ typedef void(^actionCallback)(void);
         
         self.buttonsArray = [NSMutableArray arrayWithCapacity:10];
         self.actionsArray = [NSMutableArray arrayWithCapacity:10];
+        self.customButtonActions = [NSMutableDictionary dictionaryWithCapacity:10];
+        self.customViewSet = [NSMutableSet setWithCapacity:10];
         self.actionCallbacks = [NSMutableDictionary dictionaryWithCapacity:10];
+        self.customViewConfigs = [NSMutableDictionary dictionaryWithCapacity:10];
         self.textFiledArray = [NSMutableArray arrayWithCapacity:10];
         self.textFiledCallbacks = [NSMutableDictionary dictionaryWithCapacity:10];
         self.actionSheetIgnoreXSeriesBottomInset = YES;
@@ -127,6 +149,13 @@ typedef void(^actionCallback)(void);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
         
+        self.coverButton = ({
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button addTarget:self action:@selector(blackClicked) forControlEvents:UIControlEventTouchUpInside];
+            button;
+        });
+        
         self.maskLayer = [[CAShapeLayer alloc] init];
         self.contentView = ({
             UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
@@ -134,6 +163,12 @@ typedef void(^actionCallback)(void);
             view.layer.mask = self.maskLayer;
             view;
         });
+        
+        self.contentImageView = ({
+            UIImageView *imageView = [[UIImageView alloc] init];
+            imageView;
+        });
+        [self.contentView addSubview:self.contentImageView];
         
         self.titleLabel = ({
             UILabel *label = [[UILabel alloc] init];
@@ -184,7 +219,8 @@ typedef void(^actionCallback)(void);
     [super viewDidLoad];
     
     [self.view setBackgroundColor:_backgroudColor];
-    
+
+    [self.view addSubview:self.coverButton];
     [self.view addSubview:self.contentView];
     
     if (_titleText.length > 0) {
@@ -206,6 +242,8 @@ typedef void(^actionCallback)(void);
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
+    [self.coverButton setFrame:self.view.bounds];
     
     float y = NOMAL_CONTENT_MARGIN;
     float x = NOMAL_CONTENT_MARGIN;
@@ -298,6 +336,8 @@ typedef void(^actionCallback)(void);
             [self.bottomButtonView setFrame:CGRectMake(0, tempy, ZF_SCREEN_WIDTH, btnY)];
         }
         
+    } else {
+        y += NOMAL_CONTENT_MARGIN * 2;
     }
     if (self.style == ZFAlertControllerStyleAlert) {
         [self.contentView setFrame:CGRectMake(0, 0, NOMAL_ALERT_WIDTH, y)];
@@ -315,10 +355,17 @@ typedef void(^actionCallback)(void);
         }
         [self.contentView setFrame:CGRectMake(0, contentY, ZF_SCREEN_WIDTH, y)];
     }
+    [self.contentImageView setFrame:self.contentView.bounds];
+    
+    [self.customViewSet enumerateObjectsUsingBlock:^(UIView  *_Nonnull obj, BOOL * _Nonnull stop) {
+        zf_CustomViewConfig config = self.customViewConfigs[[NSString stringWithFormat:@"%p", obj]];
+        if (config) config(self.contentView, obj);
+    }];
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.contentView.bounds byRoundingCorners:self.roundingCorners cornerRadii:CGSizeMake(self.cornerRadius, self.cornerRadius)];
     self.maskLayer.path = maskPath.CGPath;
     self.maskLayer.frame = self.contentView.bounds;
+    
 }
 
 - (void)buttonClicked:(UIButton *)button {
@@ -332,8 +379,6 @@ typedef void(^actionCallback)(void);
     [self.textFiledArray removeAllObjects];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 - (void)changeTextFieldText:(UITextField *)tf {
     if (tf.markedTextRange == nil) {
@@ -414,6 +459,21 @@ typedef void(^actionCallback)(void);
     return tf;
 }
 
+- (UIView *)addCustomView:(zf_CustomView)view config:(zf_CustomViewConfig)config {
+    UIView *customView = view();
+    if (!customView) return nil;
+    [self.view addSubview:customView];
+    if (config) self.customViewConfigs[[self keyWithView:customView]] = config;
+    [self.customViewSet addObject:customView];
+    return customView;
+}
+
+- (void)addCustomButton:(zf_CustomButton)view buttonAction:(zf_CustomButtonAction)action config:(zf_CustomViewConfig)config {
+    UIButton *customButton = (UIButton *)[self addCustomView:view config:config];
+    [customButton addTarget:self action:@selector(customButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.customButtonActions[[self keyWithView:customButton]] = action;
+}
+
 - (NSArray<UITextField *> *)textFields {
     return _textFiledArray.copy;
 }
@@ -461,12 +521,28 @@ typedef void(^actionCallback)(void);
     _backgroudColor = backgroudColor;
     [self.view setBackgroundColor:_backgroudColor];
 }
+- (void)setContentBackgroundImage:(UIImage *)contentBackgroundImage {
+    _contentBackgroundImage = contentBackgroundImage;
+    self.contentImageView.image = contentBackgroundImage;
+}
 - (float)caclulateHeightWithString:(NSString *)string font:(UIFont *)font {
     CGFloat w = NOMAL_ALERT_WIDTH - NOMAL_CONTENT_MARGIN * 2;
     if (self.style == ZFAlertControllerStyleActionSheet) w = ZF_SCREEN_WIDTH - NOMAL_CONTENT_MARGIN * 2;
     CGSize maxTitleSize = CGSizeMake(w, MAXFLOAT);
     float stringHeight = [string boundingRectWithSize:maxTitleSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : font} context:nil].size.height;
     return ceilf(stringHeight);
+}
+- (NSString *)keyWithView:(UIView *)view {
+    return [NSString stringWithFormat:@"%p", view];
+}
+
+- (void)blackClicked {
+    if (self.blankClickDismiss) [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)customButtonClicked:(UIButton *)button {
+    zf_CustomButtonAction action = self.customButtonActions[[self keyWithView:button]];
+    if (action) action(self);
 }
 
 @end
