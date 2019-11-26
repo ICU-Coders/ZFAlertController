@@ -211,10 +211,6 @@ typedef void(^actionCallback)(void);
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -385,11 +381,8 @@ typedef void(^actionCallback)(void);
 - (void)changeTextFieldText:(UITextField *)tf {
     if (tf.markedTextRange == nil) {
         zf_TextFieldTextChanged callback = self.textFiledCallbacks[@(tf.tag)];
-        if (callback) {
-            callback(tf.text, tf);
-        }
+        if (callback) callback(tf.text, tf);
     }
-    
 }
 - (void)dealloc {
 //    NSLog(@"%s", __func__);
