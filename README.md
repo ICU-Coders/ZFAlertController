@@ -113,7 +113,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
 }];
 ```
 
-> And more see `sample` in project.  
+And more see `sample` in project.  
 > If there any mistake, tell me.  
 > If you feel comfortable, maybe you can take a star🌟  
 > Thank you for your time.  
