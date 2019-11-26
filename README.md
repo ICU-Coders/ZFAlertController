@@ -36,7 +36,7 @@ Alternatively you can directly add the `ZFAlertController.h` and `ZFAlertControl
 
 ##  Usage
 Equal with UIAlertController
-Make a nomal alert
+#### Make a nomal alert
 ![alert](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/alert.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
@@ -49,7 +49,8 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
 
-Add textfield, and this will auto adjust keyboard
+#### Add textfield, and this will auto adjust keyboard
+
 ![textFiled](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/textFiled.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"Alert" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
@@ -64,7 +65,7 @@ ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
 
-Make a action sheet
+#### Make a action sheet
 ![actionSheet](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/actionSheet.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
