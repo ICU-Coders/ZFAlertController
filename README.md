@@ -40,12 +40,15 @@ Equal with UIAlertController
 ![alert](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/alert.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
+
 ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
 }];
 ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 }];
+
 [alertVC addAction:ok];
 [alertVC addAction:cancel];
+
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
 
@@ -54,6 +57,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 ![textFiled](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/textFiled.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"Alert" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
+
 [alertVC addTextFiledWithText:@"" placeholder:@"Input..." textFieldTextChangedCallback:^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
     NSLog(@"text1:%@", text);
 }];
@@ -61,6 +65,7 @@ ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
     NSLog(@"ok");
     [self testFunc];
 }];
+
 [alertVC addAction:ok];
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
@@ -69,12 +74,15 @@ ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
 ![actionSheet](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/actionSheet.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
+
 ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
 }];
 ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
 }];
+
 [alertVC addAction:ok];
 [alertVC addAction:cancel];
+
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
 
