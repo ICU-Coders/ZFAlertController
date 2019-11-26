@@ -81,7 +81,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
 
 ### How custom it is
 ![custom](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/custom.jpg)
-Add a custom view, imageView,label and so on
+#### Add a custom view, imageView,label and so on
 ```
 [alertVC addCustomView:^UIView * _Nonnull{
     UIView *customView = [[UIView alloc] init];
@@ -91,7 +91,7 @@ Add a custom view, imageView,label and so on
     [customView setFrame:CGRectMake(contentView.frame.origin.x + 40, contentView.frame.origin.y - 40, contentView.frame.size.width - 40 * 2, 30)];
 }];
 ```
-Or add a custom button 
+#### And add a custom button 
 
 ```
 [alertVC addCustomButton:^UIButton * _Nonnull{
