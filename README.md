@@ -11,11 +11,6 @@
  `ZFAlertController` is a Highly customizable AlertController for iOS.
  Choose `ZFAlertController` for your next project, or migrate over your existing projects—you'll be happy you did!
  
- | Alert      |   actionSheet | 
- | :-------: | :--------------: |
- |  ![alert](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/alert.jpg)  |  ![actionSheet](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/actionSheet.jpg) |
- | **Custom**      |  **TextFiled** | 
- | ![custom](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/custom.jpg)  |  ![textFiled](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/textFiled.jpg) |
 
 ## Adding `ZFAlertController` to your project
 ### CocoaPods
@@ -41,36 +36,61 @@ Alternatively you can directly add the `ZFAlertController.h` and `ZFAlertControl
 
 ##  Usage
 Equal with UIAlertController
-### ZFAlertControllerStyleAlert
+Make a nomal alert
+![alert](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/alert.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
 ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"ok" action:^{
-    NSLog(@"ok");
-    [self testFunc];
 }];
 ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
-    NSLog(@"cancel");
 }];
 [alertVC addAction:ok];
 [alertVC addAction:cancel];
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
-### ZFAlertControllerStyleActionSheet
+
+Add textfield, and this will auto adjust keyboard
+![textFiled](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/textFiled.jpg)
 ```
-ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
+ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"Alert" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
+[alertVC addTextFiledWithText:@"" placeholder:@"Input..." textFieldTextChangedCallback:^(NSString * _Nonnull text, UITextField * _Nonnull textField) {
+    NSLog(@"text1:%@", text);
+}];
+ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
+    NSLog(@"ok");
+    [self testFunc];
+}];
+[alertVC addAction:ok];
+[self presentViewController:alertVC animated:YES completion:nil];
 ```
 
-### Add custom view
+Make a action sheet
+![actionSheet](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/actionSheet.jpg)
+```
+ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
+ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
+}];
+ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
+}];
+[alertVC addAction:ok];
+[alertVC addAction:cancel];
+[self presentViewController:alertVC animated:YES completion:nil];
+```
+
+
+### How custom it is
+![custom](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/custom.jpg)
+Add a custom view, imageView,label and so on
 ```
 [alertVC addCustomView:^UIView * _Nonnull{
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"success"]];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    return imageView;
+    UIView *customView = [[UIView alloc] init];
+    [customView setBackgroundColor:[UIColor greenColor]];
+    return customView;
 } config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
-    [customView setFrame:CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y - 53, contentView.frame.size.width, 53)];
+    [customView setFrame:CGRectMake(contentView.frame.origin.x + 40, contentView.frame.origin.y - 40, contentView.frame.size.width - 40 * 2, 30)];
 }];
 ```
-Or add a button 
+Or add a custom button 
 
 ```
 [alertVC addCustomButton:^UIButton * _Nonnull{
@@ -83,6 +103,9 @@ Or add a button
     [customView setFrame:CGRectMake(CGRectGetMaxX(contentView.frame) - 44, contentView.frame.origin.y - 44 - 10, 44, 44)];
 }];
 ```
+
+And more see `sample` in project.
+
         
 ## MIT License
 

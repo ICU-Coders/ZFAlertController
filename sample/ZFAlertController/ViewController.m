@@ -37,11 +37,11 @@
         alertVC.messageSpace = 20;
         alertVC.messageColor = ok.titleColor = alertVC.lineColor = alertVC.titleColor = cancel.titleColor = [UIColor whiteColor];
         [alertVC addCustomView:^UIView * _Nonnull{
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"success"]];
-            imageView.contentMode = UIViewContentModeScaleAspectFit;
-            return imageView;
+            UIView *customView = [[UIView alloc] init];
+            [customView setBackgroundColor:[UIColor greenColor]];
+            return customView;
         } config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
-            [customView setFrame:CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y - 53, contentView.frame.size.width, 53)];
+            [customView setFrame:CGRectMake(contentView.frame.origin.x + 40, contentView.frame.origin.y - 40, contentView.frame.size.width - 40 * 2, 30)];
         }];
         
         
@@ -80,23 +80,23 @@
 - (IBAction)sheet:(id)sender {
     ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
         
-        ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
-            NSLog(@"ok");
-            [self testFunc];
-        }];
-        ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
-            NSLog(@"cancel");
-        }];
-        {
-            // Custom
-            cancel.verticalSpaceMargin = 10;
-            cancel.horizontalSpaceMargin = 0;
-            cancel.titleColor = ZFALERT_OK_CLOLR;
-            alertVC.actionSheetIgnoreXSeriesBottomInset = YES;
-        }
-        [alertVC addAction:ok];
-        [alertVC addAction:cancel];
-        [self presentViewController:alertVC animated:YES completion:nil];
+    ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
+        NSLog(@"ok");
+        [self testFunc];
+    }];
+    ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
+        NSLog(@"cancel");
+    }];
+    {
+        // Custom
+        cancel.verticalSpaceMargin = 10;
+        cancel.horizontalSpaceMargin = 0;
+        cancel.titleColor = ZFALERT_OK_CLOLR;
+        alertVC.actionSheetIgnoreXSeriesBottomInset = YES;
+    }
+    [alertVC addAction:ok];
+    [alertVC addAction:cancel];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 

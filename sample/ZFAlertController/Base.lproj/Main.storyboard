@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,12 +23,6 @@
                                     <action selector="buttclick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9xb-p9-6rN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWo-xY-tyB">
-                                <rect key="frame" x="45" y="133" width="41.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-AI-R9s">
                                 <rect key="frame" x="116.5" y="168.5" width="69" height="30"/>
                                 <state key="normal" title="TextFields"/>
@@ -57,19 +51,25 @@
                                     <action selector="buttclick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xwQ-Pk-GOU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWo-xY-tyB">
+                                <rect key="frame" x="47" y="132" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1MG-AI-R9s" firstAttribute="top" secondItem="zfX-jP-dr7" secondAttribute="bottom" constant="10" id="1aV-xD-lQZ"/>
-                            <constraint firstItem="FYm-hD-wRB" firstAttribute="leading" secondItem="TWo-xY-tyB" secondAttribute="leading" id="D6g-YC-mcm"/>
+                            <constraint firstItem="FYm-hD-wRB" firstAttribute="leading" secondItem="TWo-xY-tyB" secondAttribute="leading" constant="-2" id="D6g-YC-mcm"/>
                             <constraint firstItem="0h4-EA-UOl" firstAttribute="centerY" secondItem="FYm-hD-wRB" secondAttribute="centerY" id="OPX-aC-oRM"/>
-                            <constraint firstItem="TWo-xY-tyB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="XxY-C5-Ut1"/>
+                            <constraint firstItem="TWo-xY-tyB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="XxY-C5-Ut1"/>
                             <constraint firstItem="0h4-EA-UOl" firstAttribute="leading" secondItem="FYm-hD-wRB" secondAttribute="trailing" constant="26" id="aOS-bA-K3i"/>
-                            <constraint firstItem="TWo-xY-tyB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="89" id="jPh-pW-mHf"/>
-                            <constraint firstItem="zfX-jP-dr7" firstAttribute="leading" secondItem="TWo-xY-tyB" secondAttribute="trailing" constant="30" id="nah-tE-tb3"/>
-                            <constraint firstItem="zfX-jP-dr7" firstAttribute="centerY" secondItem="TWo-xY-tyB" secondAttribute="centerY" id="tuM-PP-dhc"/>
+                            <constraint firstItem="TWo-xY-tyB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="88" id="jPh-pW-mHf"/>
+                            <constraint firstItem="zfX-jP-dr7" firstAttribute="leading" secondItem="TWo-xY-tyB" secondAttribute="trailing" constant="28" id="nah-tE-tb3"/>
+                            <constraint firstItem="zfX-jP-dr7" firstAttribute="centerY" secondItem="TWo-xY-tyB" secondAttribute="centerY" constant="1" id="tuM-PP-dhc"/>
                             <constraint firstItem="1MG-AI-R9s" firstAttribute="leading" secondItem="zfX-jP-dr7" secondAttribute="leading" id="wuC-ub-VKL"/>
-                            <constraint firstItem="FYm-hD-wRB" firstAttribute="top" secondItem="TWo-xY-tyB" secondAttribute="bottom" constant="120" id="xi4-sP-X3m"/>
+                            <constraint firstItem="FYm-hD-wRB" firstAttribute="top" secondItem="TWo-xY-tyB" secondAttribute="bottom" constant="121" id="xi4-sP-X3m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
