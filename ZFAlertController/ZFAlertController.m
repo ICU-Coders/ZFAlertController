@@ -506,7 +506,11 @@ typedef void(^actionCallback)(void);
     _titleLabel.text = _titleText;
     _titleHeight = [self caclulateHeightWithString:_titleText font:_titleFont];
 }
-
+- (void)setTitle:(NSString *)title {
+    _titleText = title;
+    _titleLabel.text = _titleText;
+    _titleHeight = [self caclulateHeightWithString:_titleText font:_titleFont];
+}
 - (void)setMessageText:(NSString *)messageText {
     _messageText = messageText;
     _messageLabel.text = messageText;
