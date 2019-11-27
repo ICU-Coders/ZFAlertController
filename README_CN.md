@@ -13,8 +13,9 @@
 
 ## 添加 `ZFAlertController` 到您的项目
 ### CocoaPods
-[CocoaPods](http://cocoapods.org) is the recommended way to add `ZFAlertController` to your project.
+您需要安装[CocoaPods](http://cocoapods.org) 来将`ZFAlertController` 添加到您的项目中.  
 在您的PodFile中添加
+
 ```
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
@@ -27,11 +28,11 @@ end
 ```
 pod install --repo-update
 ```
-### Source files
+### 源代码
 直接拖拽 `ZFAlertController.h` 和 `ZFAlertController.m` 到您的项目
-1. Download the [latest code version](https://github.com/ICU-Coders/ZFAlertController/archive/master.zip) or add the repository as a git submodule to your git-tracked project.
-2. Open your project in Xcode, then drag and drop `ZFAlertController.h` and `ZFAlertController.m` onto your project (use the "Product Navigator view"). Make sure to select Copy items when asked if you extracted the code archive outside of your project.
-3. Include `ZFAlertController` wherever you need it with `#import "ZFAlertController.h"`.
+1. 下载 [最新版本](https://github.com/ICU-Coders/ZFAlertController/archive/master.zip)
+2. 将文件解压放到您的项目中
+3. 在您需要用到 `ZFAlertController`的地方 `#import "ZFAlertController.h"`.
 
 ##  Usage
 使用方法完全和 UIAlertController 相同
