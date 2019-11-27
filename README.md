@@ -52,7 +52,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
 
-#### Add textfield, and this will auto adjust keyboard
+#### Add textfield, and this will auto adjust by keyboard
 
 ![textFiled](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/textFiled.jpg)
 ```
@@ -70,7 +70,7 @@ ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
 
-#### Make a action sheet
+#### Action Sheet
 ![actionSheet](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/actionSheet.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ActionSheet" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleActionSheet];
