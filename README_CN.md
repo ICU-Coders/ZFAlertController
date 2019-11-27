@@ -8,16 +8,13 @@
  ![podversion](https://img.shields.io/cocoapods/v/ZFAlertController.svg)
  [![Platform](https://img.shields.io/cocoapods/p/ZFAlertController.svg?style=flat)](http://cocoadocs.org/docsets/ZFAlertController)
  
- ![中文说明](https://www.jianshu.com/p/b632188362b1)
-
- `ZFAlertController` is a Highly customizable AlertController for iOS.
- Choose `ZFAlertController` for your next project, or migrate over your existing projects—you'll be happy you did!
+ `ZFAlertController` 是一款使用方便高度自定义的iOS弹窗控件
  
 
-## Adding `ZFAlertController` to your project
+## 添加 `ZFAlertController` 到您的项目
 ### CocoaPods
 [CocoaPods](http://cocoapods.org) is the recommended way to add `ZFAlertController` to your project.
-Specify it in your Podfile:
+在您的PodFile中添加
 ```
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
@@ -26,19 +23,19 @@ target 'TargetName' do
 pod 'ZFAlertController', '~> 1.0.6'
 end
 ```
-Then, run the following command:
+运行:
 ```
 pod install --repo-update
 ```
 ### Source files
-Alternatively you can directly add the `ZFAlertController.h` and `ZFAlertController.m` source files to your project.
+直接拖拽 `ZFAlertController.h` 和 `ZFAlertController.m` 到您的项目
 1. Download the [latest code version](https://github.com/ICU-Coders/ZFAlertController/archive/master.zip) or add the repository as a git submodule to your git-tracked project.
 2. Open your project in Xcode, then drag and drop `ZFAlertController.h` and `ZFAlertController.m` onto your project (use the "Product Navigator view"). Make sure to select Copy items when asked if you extracted the code archive outside of your project.
 3. Include `ZFAlertController` wherever you need it with `#import "ZFAlertController.h"`.
 
 ##  Usage
-Equal with UIAlertController
-#### Make a nomal alert
+使用方法完全和 UIAlertController 相同
+#### 创建一个普通弹窗
 ![alert](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/alert.jpg)
 ```
 ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"ZFAlertController" message:@"alertWithTitle:message:style:" style:ZFAlertControllerStyleAlert];
@@ -54,7 +51,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"cancel" action:^{
 [self presentViewController:alertVC animated:YES completion:nil];
 ```
 
-#### Add textfield, and this will auto adjust by keyboard
+#### 创建一个带有TextFiled的弹窗（自动适应键盘）
 
 ![textFiled](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/textFiled.jpg)
 ```
@@ -89,9 +86,9 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
 ```
 
 
-### How custom it is
+### 自定义
 ![custom](https://raw.githubusercontent.com/ICU-Coders/IconLib/master/AlertController/custom.jpg)
-#### Add a custom view, imageView,label and so on
+#### 添加各种自定义View
 ```
 [alertVC addCustomView:^UIView * _Nonnull{
     UIView *customView = [[UIView alloc] init];
@@ -101,7 +98,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
     [customView setFrame:CGRectMake(contentView.frame.origin.x + 40, contentView.frame.origin.y - 40, contentView.frame.size.width - 40 * 2, 30)];
 }];
 ```
-#### And add a custom button 
+#### 添加按钮
 
 ```
 [alertVC addCustomButton:^UIButton * _Nonnull{
@@ -115,10 +112,10 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
 }];
 ```
 
-And more see `sample` in project.  
-> If there any mistake, tell me.  
-> If you feel comfortable, maybe you can take a star🌟  
-> Thank you for your time.  
+更多可以查看`sample`
+> 如果有任何问题或建议，请告诉我.  
+> 如果觉得不错，给个赞吧🌟  
+> 谢谢 
 
         
 ## MIT License
