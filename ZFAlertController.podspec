@@ -9,13 +9,13 @@
 
 Pod::Spec.new do |s|
   s.name         = "ZFAlertController"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "No short description of ZFAlertController."
   s.homepage     = "https://github.com/FranLucky/ZFAlertController"
   s.license      = { :type => "MIT"}
   s.author       = { "Pokeey" => "zhangfan8080@gmail.com" }
-  s.platform     = :ios, "8.0"
-  s.ios.deployment_target = "8.0"
+  s.platform     = :ios, "9.0"
+  s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/FranLucky/ZFAlertController.git", :tag => "#{s.version}" }
   s.source_files  = "ZFAlertController/*.{h,m}"
   s.frameworks = "Foundation","UIKit"

@@ -18,10 +18,10 @@
 Specify it in your Podfile:
 ```
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'TargetName' do
-pod 'ZFAlertController', '~> 1.0.5'
+pod 'ZFAlertController', '~> 1.0.6'
 end
 ```
 Then, run the following command:
