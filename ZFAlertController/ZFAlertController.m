@@ -134,6 +134,7 @@ typedef void(^actionCallback)(void);
         _textFieldSpace = NOMAL_CONTENT_MARGIN;
         _buttonsSpace = NOMAL_CONTENT_MARGIN * 1.5;
         _lineColor = ZFALERT_LINE_COLOR;
+        _titleAlignment = _messageAlignment = NSTextAlignmentCenter;
         
         self.buttonsArray = [NSMutableArray arrayWithCapacity:10];
         self.actionsArray = [NSMutableArray arrayWithCapacity:10];
@@ -176,7 +177,7 @@ typedef void(^actionCallback)(void);
             label.textColor = self.titleColor;
             label.numberOfLines = 0;
             label.text = self.titleText;
-            label.textAlignment = NSTextAlignmentCenter;
+            label.textAlignment = self.titleAlignment;
             label;
         });
         [self.contentView addSubview:self.titleLabel];
@@ -187,7 +188,7 @@ typedef void(^actionCallback)(void);
             label.textColor = self.messageColor;
             label.numberOfLines = 0;
             label.text = self.messageText;
-            label.textAlignment = NSTextAlignmentCenter;
+            label.textAlignment = self.messageAlignment;
             label;
         });
         [self.contentView addSubview:self.messageLabel];
@@ -543,5 +544,12 @@ typedef void(^actionCallback)(void);
     zf_CustomButtonAction action = self.customButtonActions[[self keyWithView:button]];
     if (action) action(self);
 }
-
+- (void)setTitleAlignment:(NSTextAlignment)titleAlignment {
+    _titleAlignment = titleAlignment;
+    self.titleLabel.textAlignment = _titleAlignment;
+}
+- (void)setMessageAlignment:(NSTextAlignment)messageAlignment {
+    _messageAlignment = messageAlignment;
+    self.messageLabel.textAlignment = _messageAlignment;
+}
 @end

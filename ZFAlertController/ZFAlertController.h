@@ -111,9 +111,18 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
  */
 @property(nonatomic, assign) float titleSpace;
 /**
+ * Nomal NSTextAlignmentCenter
+ */
+@property(nonatomic, assign) NSTextAlignment titleAlignment;
+/**
  *  Message title margin. Default 10.
  */
 @property(nonatomic, assign) float messageSpace;
+/**
+* Nomal NSTextAlignmentCenter
+*/
+@property(nonatomic, assign) NSTextAlignment messageAlignment;
+
 /**
  *  textField message margin. Default 10.
  */
