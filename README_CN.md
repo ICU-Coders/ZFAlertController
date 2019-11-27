@@ -21,7 +21,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 
 target 'TargetName' do
-pod 'ZFAlertController', '~> 1.0.6'
+pod 'ZFAlertController', '~> 1.0.7'
 end
 ```
 运行:

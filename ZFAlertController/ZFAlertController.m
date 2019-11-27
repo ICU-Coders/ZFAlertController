@@ -92,6 +92,7 @@ typedef void(^actionCallback)(void);
 
 @property(nonatomic, assign) float titleHeight;
 @property(nonatomic, assign) float messageHeight;
+@property (nonatomic, strong) NSAttributedString *messageAttributedString;
 
 @property (nonatomic, strong) NSMutableArray *buttonsArray;
 @property (nonatomic, strong) NSMutableArray *actionsArray;
@@ -223,7 +224,7 @@ typedef void(^actionCallback)(void);
     if (_titleText.length > 0) {
         _titleHeight = [self caclulateHeightWithString:_titleText font:_titleFont];
     }
-    if (_messageText > 0) {
+    if (_messageText.length > 0 && _messageAttributedString.length == 0) {
         _messageHeight = [self caclulateHeightWithString:_messageText font:_messageFont];
     }
     
@@ -260,7 +261,7 @@ typedef void(^actionCallback)(void);
         y += self.titleHeight;
     }
     
-    if (self.messageText.length > 0) {
+    if (self.messageText.length > 0 || self.messageLabel.attributedText.length > 0) {
         if (y == 0) y += self.messageSpace;
         y += (self.messageSpace - 5);
         [self.messageLabel setFrame:CGRectMake(x, y, contentWidth, self.messageHeight)];
@@ -517,21 +518,37 @@ typedef void(^actionCallback)(void);
     _messageLabel.text = messageText;
     _messageHeight = [self caclulateHeightWithString:_messageText font:_messageFont];
 }
+
+- (void)changeMessageText:(NSString *)text attr:(NSDictionary *)attr {
+    NSAttributedString *tempStr = [[NSAttributedString alloc] initWithString:text attributes:attr];
+    _messageLabel.attributedText = tempStr;
+    _messageHeight = [self caclulateHeightWithString:text attr:attr];
+    _messageAttributedString = tempStr;
+}
+
 - (void)setBackgroudColor:(UIColor *)backgroudColor {
     _backgroudColor = backgroudColor;
     [self.view setBackgroundColor:_backgroudColor];
 }
+
 - (void)setContentBackgroundImage:(UIImage *)contentBackgroundImage {
     _contentBackgroundImage = contentBackgroundImage;
     self.contentImageView.image = contentBackgroundImage;
 }
+
 - (float)caclulateHeightWithString:(NSString *)string font:(UIFont *)font {
+    return [self caclulateHeightWithString:string attr:@{NSFontAttributeName : font}];
+}
+
+- (float)caclulateHeightWithString:(NSString *)string attr:(NSDictionary *)attr {
     CGFloat w = NOMAL_ALERT_WIDTH - NOMAL_CONTENT_MARGIN * 2;
     if (self.style == ZFAlertControllerStyleActionSheet) w = ZF_SCREEN_WIDTH - NOMAL_CONTENT_MARGIN * 2;
     CGSize maxTitleSize = CGSizeMake(w, MAXFLOAT);
-    float stringHeight = [string boundingRectWithSize:maxTitleSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : font} context:nil].size.height;
+    float stringHeight = [string boundingRectWithSize:maxTitleSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attr context:nil].size.height;
     return ceilf(stringHeight);
 }
+
+
 - (NSString *)keyWithView:(UIView *)view {
     return [NSString stringWithFormat:@"%p", view];
 }

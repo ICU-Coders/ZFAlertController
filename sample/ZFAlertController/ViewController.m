@@ -21,7 +21,7 @@
 }
 
 - (IBAction)buttclick:(UIButton *)sender {
-    ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"alertWithTitle" message:@"" style:ZFAlertControllerStyleAlert];
+    ZFAlertController *alertVC = [ZFAlertController alertWithTitle:@"alertWithTitle" message:@"message" style:ZFAlertControllerStyleAlert];
     ZFAlertAction *ok = [ZFAlertAction actionWithTitle:@"Ok" action:^{
         NSLog(@"ok");
         [self testFunc];
@@ -29,10 +29,12 @@
     ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
         NSLog(@"cancel");
     }];
+    
     alertVC.blankClickDismiss = YES;
     if ([sender.titleLabel.text isEqualToString:@"Custom"]) {
 //        alertVC.backgroudColor = [UIColor redColor];
 //        alertVC.contentBackgroundColor = [UIColor grayColor];
+        [alertVC changeMessageText:@"change" attr:@{NSFontAttributeName: [UIFont systemFontOfSize:20]}];
         alertVC.contentBackgroundImage = [UIImage imageNamed:@"background"];
         alertVC.messageSpace = 20;
         alertVC.messageColor = ok.titleColor = alertVC.lineColor = alertVC.titleColor = cancel.titleColor = [UIColor whiteColor];

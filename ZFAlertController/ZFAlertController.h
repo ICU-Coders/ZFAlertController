@@ -72,7 +72,7 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 - (UIView *)addCustomView:(zf_CustomView)view config:(zf_CustomViewConfig)config;
 - (void)addCustomButton:(zf_CustomButton)view buttonAction:(zf_CustomButtonAction)action config:(zf_CustomViewConfig)config;
 
-
+- (void)changeMessageText:(NSString *)text attr:(NSDictionary *)attr;
 
 /**
  * Background cover color,default [UIColor colorWithWhite:0 alpha:.6]
@@ -97,6 +97,7 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 
 @property(nonatomic, copy) NSString *titleText;
 @property(nonatomic, copy) NSString *messageText;
+
 /**
  * Nomal CGSizeZero ZFAlertControllerStyleAlert
  * height = 0 means auto
