@@ -23,7 +23,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 
 target 'TargetName' do
-pod 'ZFAlertController', '~> 1.0.7'
+pod 'ZFAlertController', '~> 1.0.8'
 end
 ```
 Then, run the following command:
@@ -111,6 +111,7 @@ ZFAlertAction *cancel = [ZFAlertAction actionWithTitle:@"Cancel" action:^{
 } buttonAction:^(UIViewController * _Nonnull alert) {
     [alert dismissViewControllerAnimated:YES completion:nil];
 } config:^(UIView * _Nonnull contentView, UIView * _Nonnull customView) {
+    // or masonry here
     [customView setFrame:CGRectMake(CGRectGetMaxX(contentView.frame) - 44, contentView.frame.origin.y - 44 - 10, 44, 44)];
 }];
 ```

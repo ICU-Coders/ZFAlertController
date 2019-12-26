@@ -30,7 +30,7 @@
         NSLog(@"cancel");
     }];
     
-    alertVC.blankClickDismiss = YES;
+//    ok.actionExecuteDismiss = NO;
     if ([sender.titleLabel.text isEqualToString:@"Custom"]) {
 //        alertVC.backgroudColor = [UIColor redColor];
 //        alertVC.contentBackgroundColor = [UIColor grayColor];

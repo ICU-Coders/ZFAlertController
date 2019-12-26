@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ZFAlertAction;
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -20,36 +20,6 @@ typedef void(^zf_CustomViewConfig)(UIView *contentView, UIView *customView);
 typedef UIView *_Nonnull(^zf_CustomView)(void);
 typedef UIButton *_Nonnull(^zf_CustomButton)(void);
 typedef void(^zf_CustomButtonAction)(UIViewController *alert);
-
-@interface ZFAlertAction : NSObject
-
-+ (instancetype)actionWithTitle:(NSString *)title action:(void (^ _Nullable)(void))action;
-
-@property(nonatomic, copy) NSString *titleText;
-/**
- * Default [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
- */
-@property (nonatomic, strong) UIFont *titleFont;
-/**
- *  Default  red:19/255.0 green:19/255.0 blue:54/255.0 alpha:1
- */
-@property (nonatomic, strong) UIColor *titleColor;
-/**
- * Only actionSheet. Default .5f
- * Can make a custom line between two buttons
- */
-@property(nonatomic, assign) CGFloat verticalSpaceMargin;
-/**
- * Left & right edge inset
- * Only actionSheet. Default 10.0f
- */
-@property(nonatomic, assign) CGFloat horizontalSpaceMargin;
-/**
- * Only actionSheet, under action. Default ZFALERT_LINE_COLOR
- */
-@property (nonatomic, strong) UIColor *separatoColor;
-
-@end
 
 typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
     ZFAlertControllerStyleAlert,
@@ -65,7 +35,7 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 
 - (UITextField *)addTextFiledWithText:(NSString *)text placeholder:(NSString *)placeholder textFieldTextChangedCallback:(zf_TextFieldTextChanged)textFieldTextChangedCallback;
 /**
- * highest priority
+ * highest priority view level
  * config base on contentView, config() will take on viewWillLayoutSubviews
  * view will add by [self.view addSubview:view]
  */
@@ -177,5 +147,44 @@ typedef NS_ENUM(NSUInteger, ZFAlertControllerStyle) {
 
 
 @end
+
+
+
+@interface ZFAlertAction : NSObject
+
++ (instancetype)actionWithTitle:(NSString *)title action:(void (^ _Nullable)(void))action;
+
+@property(nonatomic, copy) NSString *titleText;
+/**
+ * Default [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+ */
+@property (nonatomic, strong) UIFont *titleFont;
+/**
+ *  Default  red:19/255.0 green:19/255.0 blue:54/255.0 alpha:1
+ */
+@property (nonatomic, strong) UIColor *titleColor;
+/**
+ * Only actionSheet. Default .5f
+ * Can make a custom line between two buttons
+ */
+@property(nonatomic, assign) CGFloat verticalSpaceMargin;
+/**
+ * Left & right edge inset
+ * Only actionSheet. Default 10.0f
+ */
+@property(nonatomic, assign) CGFloat horizontalSpaceMargin;
+/**
+ * Only actionSheet, under action. Default ZFALERT_LINE_COLOR
+ */
+@property (nonatomic, strong) UIColor *separatoColor;
+
+/**
+ * 执行完之后隐藏
+ * 默认YES
+ */
+@property(nonatomic, assign) BOOL actionExecuteDismiss;
+
+@end
+
 
 NS_ASSUME_NONNULL_END

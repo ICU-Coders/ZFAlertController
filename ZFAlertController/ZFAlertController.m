@@ -56,6 +56,7 @@ typedef void(^actionCallback)(void);
         self.separatoColor = ZFALERT_LINE_COLOR;
         self.verticalSpaceMargin = .5f;
         self.horizontalSpaceMargin = NOMAL_CONTENT_MARGIN;
+        self.actionExecuteDismiss = YES;
     }
     return self;
 }
@@ -374,10 +375,12 @@ typedef void(^actionCallback)(void);
         action.action();
     }
     [self.view endEditing:YES];
-    [self.actionCallbacks removeAllObjects];
-    [self.actionsArray removeAllObjects];
-    [self.textFiledArray removeAllObjects];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (action.actionExecuteDismiss) {
+        [self.actionCallbacks removeAllObjects];
+        [self.actionsArray removeAllObjects];
+        [self.textFiledArray removeAllObjects];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)changeTextFieldText:(UITextField *)tf {
