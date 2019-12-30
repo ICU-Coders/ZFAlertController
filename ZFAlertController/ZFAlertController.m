@@ -243,13 +243,14 @@ typedef void(^actionCallback)(void);
     [super viewWillLayoutSubviews];
     
     [self.coverButton setFrame:self.view.bounds];
-    
+    // fit minsize
+    float width = MAX(self.minAlertSize.width, NOMAL_ALERT_WIDTH);
     float y = NOMAL_CONTENT_MARGIN;
     float x = NOMAL_CONTENT_MARGIN;
     float contentWidth = 0;
     switch (self.style) {
         case ZFAlertControllerStyleAlert:
-            contentWidth = NOMAL_ALERT_WIDTH - NOMAL_CONTENT_MARGIN * 2;
+            contentWidth = width - NOMAL_CONTENT_MARGIN * 2;
             break;
         case ZFAlertControllerStyleActionSheet:
             contentWidth = ZF_SCREEN_WIDTH - NOMAL_CONTENT_MARGIN * 2;
@@ -290,9 +291,9 @@ typedef void(^actionCallback)(void);
             // hor
             y += self.buttonsSpace;
             [self.lineHorView setBackgroundColor:self.lineColor];
-            [self.lineHorView setFrame:CGRectMake(0, y, NOMAL_ALERT_WIDTH, 1)];
+            [self.lineHorView setFrame:CGRectMake(0, y, width, 1)];
             y += 1;
-            [self.bottomButtonView setFrame:CGRectMake(0, y, NOMAL_ALERT_WIDTH, 44)];
+            [self.bottomButtonView setFrame:CGRectMake(0, y, width, 44)];
             float btnWidth = NOMAL_ALERT_WIDTH / self.buttonsArray.count;
             for (int i = 0; i < self.buttonsArray.count; i++) {
                 UIButton *btn = self.buttonsArray[i];
@@ -340,7 +341,6 @@ typedef void(^actionCallback)(void);
     }
     if (self.style == ZFAlertControllerStyleAlert) {
         if (y < self.minAlertSize.height) y = self.minAlertSize.height;
-        float width = MAX(self.minAlertSize.width, NOMAL_ALERT_WIDTH);
         [self.contentView setFrame:CGRectMake(0, 0, width, y)];
         [self.contentView setCenter:self.view.center];
     } else if (self.style == ZFAlertControllerStyleActionSheet) {
